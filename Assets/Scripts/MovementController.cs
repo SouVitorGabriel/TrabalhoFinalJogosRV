@@ -5,7 +5,13 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [Header("Booleanas de teste")]
-    public bool frente, esquerda, direita, atras;
+    public GameObject ganhou;
+    [Header("Booleanas de teste")]
+    public bool frente;
+    public bool esquerda;
+    public bool direita;
+    public bool atras;
+
     //vetores de rotação para definir para onde o personagem irá olhar:
     Vector3 upOrFront = Vector3.zero;
     Vector3 right = new Vector3(0, 90, 0);
@@ -72,7 +78,8 @@ public class MovementController : MonoBehaviour
 
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
         {
-            transform.localEulerAngles = currentDirection;
+            //transform.localEulerAngles = currentDirection;
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(currentDirection), 8f * Time.deltaTime);
 
             if(canMove)
             {
@@ -82,8 +89,8 @@ public class MovementController : MonoBehaviour
                     direction = nextPos;
                     canMove = false;
                 }
-                
             }
+            Ganhei();
         }
     }
 
@@ -100,7 +107,28 @@ public class MovementController : MonoBehaviour
             {
                 return false;
             }
+            if(hit.collider.tag == "Ganhou")
+            {
+                ganhou.SetActive(true);
+                Debug.Log("GANHEI!");
+            }
         }
         return true;
+    }
+
+    void Ganhei()
+    {
+        Ray ganheiRay = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.position - new Vector3(0,1, 0));
+        RaycastHit hit2;
+        Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
+
+        if(Physics.Raycast(ganheiRay, out hit2, 0.5f))
+        {
+            if(hit2.collider.tag == "Ganhou")
+            {
+                ganhou.SetActive(true);
+                Debug.Log("GANHEI!");
+            }
+        }
     }
 }
