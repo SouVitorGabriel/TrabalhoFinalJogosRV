@@ -59,7 +59,7 @@ public class SwipeController : MonoBehaviour
         }
 
         //Verficando se ultrapassou a zona morta
-        if(swipeDelta.magnitude > 120)
+        if(swipeDelta.magnitude > 80)
         {
             //Agora verificando em qual direção:
             float x = swipeDelta.x;

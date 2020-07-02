@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-
+    [Header("Booleanas de teste")]
+    public bool frente, esquerda, direita, atras;
     //vetores de rotação para definir para onde o personagem irá olhar:
     Vector3 upOrFront = Vector3.zero;
     Vector3 right = new Vector3(0, 90, 0);
@@ -37,32 +38,36 @@ public class MovementController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || frente)
         {
             nextPos = Vector3.forward;
             currentDirection = upOrFront;
             canMove = true;
+            frente = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || atras)
         {
             nextPos = Vector3.back;
             currentDirection = downOrBack;
             canMove = true;
+            atras = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || direita)
         {
             nextPos = Vector3.right;
             currentDirection = right;
             canMove = true;
+            direita = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || esquerda)
         {
             nextPos = Vector3.left;
             currentDirection = left;
             canMove = true;
+            esquerda = false;
         }
 
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
