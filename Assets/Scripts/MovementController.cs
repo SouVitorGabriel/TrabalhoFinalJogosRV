@@ -12,6 +12,11 @@ public class MovementController : MonoBehaviour
     public bool direita;
     public bool atras;
 
+    private bool frenteLock;
+    private bool atrasLock;
+    private bool direitaLock;
+    private bool esquerdaLock;
+
     //vetores de rotação para definir para onde o personagem irá olhar:
     Vector3 upOrFront = Vector3.zero;
     Vector3 right = new Vector3(0, 90, 0);
@@ -96,12 +101,24 @@ public class MovementController : MonoBehaviour
 
     bool IsValid()
     {
-        Ray myRay = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
+        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.forward);
+        Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
+
+        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.back);
+        // Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
+
+        // Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.right);
+        // Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
+
+        // Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.left);
+        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
+
+        // Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.down);
+        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.black);
+
         RaycastHit hit;
 
-        Debug.DrawRay(myRay.origin, myRay.direction, Color.red);
-
-        if(Physics.Raycast(myRay, out hit, rayLength))
+        if(Physics.Raycast(myRaFront, out hit, rayLength))
         {
             if(hit.collider.tag == "Wall")
             {
@@ -116,13 +133,33 @@ public class MovementController : MonoBehaviour
         return true;
     }
 
+
     void Ganhei()
     {
+        
+        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
+        Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
+
+        Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
+        Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
+
+        Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.right);
+        Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
+
+        Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.right);
+        Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
+
+        Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
+        Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
+
+
+
+
         Ray ganheiRay = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.position - new Vector3(0,1, 0));
         RaycastHit hit2;
-        Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
+        //Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
 
-        if(Physics.Raycast(ganheiRay, out hit2, 0.5f))
+        if(Physics.Raycast(myRayDown, out hit2, 0.5f))
         {
             if(hit2.collider.tag == "Ganhou")
             {
