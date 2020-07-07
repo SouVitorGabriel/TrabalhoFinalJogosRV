@@ -101,10 +101,10 @@ public class MovementController : MonoBehaviour
 
     bool IsValid()
     {
-        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.forward);
+        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
         Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
 
-        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.back);
+        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
         // Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
 
         // Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.right);
@@ -124,11 +124,6 @@ public class MovementController : MonoBehaviour
             {
                 return false;
             }
-            if(hit.collider.tag == "Ganhou")
-            {
-                ganhou.SetActive(true);
-                Debug.Log("GANHEI!");
-            }
         }
         return true;
     }
@@ -137,25 +132,21 @@ public class MovementController : MonoBehaviour
     void Ganhei()
     {
         
-        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
-        Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
+        // Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
+        // Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
 
-        Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
-        Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
+        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
+        // Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
 
-        Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.right);
-        Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
+        // Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.right);
+        // Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
 
-        Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.right);
-        Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
+        // Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.right);
+        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
 
         Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
         Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
 
-
-
-
-        Ray ganheiRay = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.position - new Vector3(0,1, 0));
         RaycastHit hit2;
         //Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
 
