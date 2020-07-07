@@ -83,8 +83,10 @@ public class MovementController : MonoBehaviour
 
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
         {
-            //transform.localEulerAngles = currentDirection;
-            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(currentDirection), 8f * Time.deltaTime);
+            ////transform.localEulerAngles = currentDirection;
+
+
+           transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(currentDirection), 8f * Time.deltaTime);
 
             if(canMove)
             {
@@ -101,31 +103,67 @@ public class MovementController : MonoBehaviour
 
     bool IsValid()
     {
-        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
+        Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.forward);
         Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
 
-        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
-        // Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
+        Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.back);
+        Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
 
-        // Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.right);
-        // Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
+        Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.right);
+        Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
 
-        // Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.left);
-        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
+        Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.left);
+        Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
 
         // Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.down);
         // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.black);
 
-        RaycastHit hit;
+        RaycastHit hitF;
+        RaycastHit hitB;
+        RaycastHit hitL;
+        RaycastHit hitR;
 
-        if(Physics.Raycast(myRaFront, out hit, rayLength))
+        if(currentDirection == upOrFront)
         {
-            if(hit.collider.tag == "Wall")
+            if(Physics.Raycast(myRaFront, out hitF, rayLength))
             {
-                return false;
+                if(hitF.collider.tag == "Wall")
+                {
+                    return false;
+                }
             }
         }
-        return true;
+        else if(currentDirection == left)
+        {
+            if(Physics.Raycast(myRayLeft, out hitL, rayLength))
+            {
+                if(hitL.collider.tag == "Wall")
+                {
+                    return false;
+                }
+            }
+        }
+        else if(currentDirection == right)
+        {
+            if(Physics.Raycast(myRayRight, out hitR, rayLength))
+            {
+                if(hitR.collider.tag == "Wall")
+                {
+                    return false;
+                }
+            }
+        }
+        else if(currentDirection == downOrBack)
+        {
+            if(Physics.Raycast(myRayBack, out hitB, rayLength))
+            {
+                if(hitB.collider.tag == "Wall")
+                {
+                    return false;
+                }
+            }
+        }
+        return true;        
     }
 
 
