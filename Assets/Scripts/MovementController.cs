@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class MovementController : MonoBehaviour
 {
     [Header("Booleanas de teste")]
     public GameObject ganhou;
+
+    public CinemachineVirtualCamera cineMachineVCamera;
     [Header("Booleanas de teste")]
     public bool frente;
     public bool esquerda;
@@ -194,16 +197,19 @@ public class MovementController : MonoBehaviour
             {
                 ganhou.SetActive(true);
                 Debug.Log("GANHEI!");
+                //cineMachineVCamera.Follow = null;
                 for (int i = 0; i < 2; i++)
                 {
                     frente = true;
                 }
             }
         }
+        
     }
 
     public void SetPositionStart(Vector3 pos)
     {
+        cineMachineVCamera.Follow = this.transform;
         currentDirection = upOrFront;
         nextPos = Vector3.forward;
         transform.position = pos;

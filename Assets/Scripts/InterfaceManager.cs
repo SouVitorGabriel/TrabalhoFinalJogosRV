@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InterfaceManager : MonoBehaviour
 {
     [Header("UI's")]
-
+    public Image img; //uma imagem para fazer fadeout por exemplo
     public GameObject mainMenu;
     public GameObject levelSelectionMenu;
     public GameObject ingameInterface;
@@ -35,9 +36,8 @@ public class InterfaceManager : MonoBehaviour
 
     public void Playlevel1()
     {
+        PlayAnimation();
         PreparingLevel1();
-        levelSelectionMenu.SetActive(false);
-        mainMenu.SetActive(false);
     }
 
     public void QuitGame()
@@ -59,6 +59,40 @@ public class InterfaceManager : MonoBehaviour
     {
         playerGG.SetPositionStart(level1StartPosition);
         ingameInterface.SetActive(true);
+    }
+
+    //Função do Diego de fade
+    public void PlayAnimation()
+    {
+        StartCoroutine(Animation());
+    }
+
+    private IEnumerator Animation()
+    {
+        float timer = 0.7f; //tempo da animação
+        Color color = img.color;
+        do
+        {
+                timer -= Time.deltaTime;//reduzir o tempo a cada frame
+                color.a = Mathf.Lerp(1, 0 , timer/3f);//um lerp para transitar o alpha entre 1 e 0 de acordo com o tempo
+                img.color = color;
+                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0.7f);
+        
+        levelSelectionMenu.SetActive(false);
+        mainMenu.SetActive(false);
+
+        timer = 1f;
+
+        do
+        {
+                timer -= Time.deltaTime;//reduzir o tempo a cada frame
+                color.a = Mathf.Lerp(0, 1 , timer/3f);//um lerp para transitar o alpha entre 1 e 0 de acordo com o tempo
+                img.color = color;
+                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0f);
     }
 
 
