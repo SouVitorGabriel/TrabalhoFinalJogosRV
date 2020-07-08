@@ -5,6 +5,9 @@ using Cinemachine;
 
 public class MovementController : MonoBehaviour
 {
+    [Header("Managers")]
+    public InterfaceManager interfaceManager;
+
     [Header("Booleanas de teste")]
     public GameObject ganhou;
 
@@ -172,7 +175,6 @@ public class MovementController : MonoBehaviour
 
     void Ganhei()
     {
-        
         // Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
         // Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
 
@@ -195,16 +197,16 @@ public class MovementController : MonoBehaviour
         {
             if(hit2.collider.tag == "Ganhou")
             {
-                ganhou.SetActive(true);
+                interfaceManager.Ingame = false;
                 Debug.Log("GANHEI!");
-                //cineMachineVCamera.Follow = null;
+                cineMachineVCamera.Follow = null;
                 for (int i = 0; i < 2; i++)
                 {
                     frente = true;
                 }
+                ganhou.SetActive(true);
             }
         }
-        
     }
 
     public void SetPositionStart(Vector3 pos)

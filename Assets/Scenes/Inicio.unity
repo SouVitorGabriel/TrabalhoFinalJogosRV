@@ -180,6 +180,8 @@ MonoBehaviour:
   movesText: {fileID: 1606776032}
   playerGG: {fileID: 975651347}
   level1StartPosition: {x: -0.014, y: 0, z: 105.061}
+  level1CameraPosition: {x: 0, y: 0, z: 0}
+  level1CameraRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &271127672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,5 +3504,10 @@ PrefabInstance:
       propertyPath: cineMachineVCamera
       value: 
       objectReference: {fileID: 2141033794}
+    - target: {fileID: 8977648007536750084, guid: 22aebce7ef4371b4795ea35713f5210d,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aebce7ef4371b4795ea35713f5210d, type: 3}

@@ -21,6 +21,8 @@ public class InterfaceManager : MonoBehaviour
 
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
+    public Vector3 level1CameraPosition;
+    public Vector3 level1CameraRotation;
 
     float timer = 0f;
     int moviments = 0;
@@ -66,7 +68,13 @@ public class InterfaceManager : MonoBehaviour
         playerGG.SetPositionStart(level1StartPosition);
         ingameInterface.SetActive(true);
         Ingame = true;    
-        }
+    }
+
+    // private IEnumerator EndLevel()
+    // {
+
+    // }
+
 
     //Função do Diego de fade
     public void PlayAnimation()
