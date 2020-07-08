@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class InterfaceManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class InterfaceManager : MonoBehaviour
     public GameObject levelSelectionMenu;
     public GameObject ingameInterface;
     public GameObject finalLevel1;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI movesText;
 
     [Header("Objects")]
     public MovementController playerGG;
@@ -19,14 +22,16 @@ public class InterfaceManager : MonoBehaviour
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
 
+    float timer = 0f;
+    int moviments = 0;
+    bool ingame;
 
+    int actualLevel;
     void Start()
     {
         SetVsync0_60FPS();
     }
     
-
-
 
     //Funções dos botões do Menu Principal
     public void _TurnOnLevelSelection()
@@ -51,6 +56,7 @@ public class InterfaceManager : MonoBehaviour
         finalLevel1.SetActive(false);
         mainMenu.SetActive(true);
         playerGG.SetPositionStart(level1StartPosition);
+        Ingame = false;
         //SceneManager.LoadScene("Inicio");
     }
 
@@ -59,7 +65,8 @@ public class InterfaceManager : MonoBehaviour
     {
         playerGG.SetPositionStart(level1StartPosition);
         ingameInterface.SetActive(true);
-    }
+        Ingame = true;    
+        }
 
     //Função do Diego de fade
     public void PlayAnimation()
@@ -95,6 +102,38 @@ public class InterfaceManager : MonoBehaviour
         while(timer > 0f);
     }
 
+
+    //Timer do gameplay
+    public bool Ingame
+{
+       get {return ingame;}
+       set
+       {
+            if(value == ingame)
+                    return; //isso aqui impede que você set o mesmo valor duas vezes desnecessariamente;
+            ingame = value;
+            if(ingame)
+            {
+                    timer = 0f;
+                    StartCoroutine(CorroutineTimer());
+            }
+       }
+}
+    IEnumerator CorroutineTimer()
+    {
+        do
+        {
+                timer += Time.deltaTime;
+
+                float milliseconds = (Mathf.Floor(timer * 100) % 100);
+                int seconds = (int)(timer % 60);
+
+                timeText.text = string.Format("{0}.{1}", seconds.ToString("00"), milliseconds.ToString("00"));
+                yield return new WaitForEndOfFrame();
+        }
+        while(ingame);
+         //fazer coisas depois que a variavel ingame fica false
+    }
 
     //Funções de VSync
     public void SetVsync2()

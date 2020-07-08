@@ -209,7 +209,7 @@ public class MovementController : MonoBehaviour
 
     public void SetPositionStart(Vector3 pos)
     {
-        cineMachineVCamera.Follow = this.transform;
+        cineMachineVCamera.Follow = gameObject.transform;
         currentDirection = upOrFront;
         nextPos = Vector3.forward;
         transform.position = pos;
