@@ -194,7 +194,19 @@ public class MovementController : MonoBehaviour
             {
                 ganhou.SetActive(true);
                 Debug.Log("GANHEI!");
+                for (int i = 0; i < 2; i++)
+                {
+                    frente = true;
+                }
             }
         }
+    }
+
+    public void SetPositionStart(Vector3 pos)
+    {
+        currentDirection = upOrFront;
+        nextPos = Vector3.forward;
+        transform.position = pos;
+        destination = pos;
     }
 }
