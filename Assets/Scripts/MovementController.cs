@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
 {
     [Header("Managers")]
     public InterfaceManager interfaceManager;
+    public _ScenarioManager scenarioManager;
 
     [Header("Booleanas de teste")]
     public GameObject ganhou;
@@ -101,6 +102,7 @@ public class MovementController : MonoBehaviour
                     destination = transform.position + nextPos;
                     direction = nextPos;
                     canMove = false;
+                    interfaceManager.AddOneMove();
                 }
             }
             Ganhei();
@@ -200,13 +202,19 @@ public class MovementController : MonoBehaviour
                 interfaceManager.Ingame = false;
                 Debug.Log("GANHEI!");
                 cineMachineVCamera.Follow = null;
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i <= 5; i++)
                 {
                     frente = true;
                 }
-                ganhou.SetActive(true);
+                scenarioManager.FecharPortinhas();
+                Invoke("FunGanhou", 1f);
             }
         }
+    }
+
+    void FunGanhou()
+    {
+        ganhou.SetActive(true);
     }
 
     public void SetPositionStart(Vector3 pos)

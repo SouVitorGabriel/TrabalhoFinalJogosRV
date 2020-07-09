@@ -16,8 +16,9 @@ public class InterfaceManager : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI movesText;
 
-    [Header("Objects")]
+    [Header("Controllers")]
     public MovementController playerGG;
+    public _ScenarioManager scenarioManager;
 
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
@@ -59,6 +60,8 @@ public class InterfaceManager : MonoBehaviour
         mainMenu.SetActive(true);
         playerGG.SetPositionStart(level1StartPosition);
         Ingame = false;
+        moviments = 0;
+        scenarioManager.ResetPortinhas();
         //SceneManager.LoadScene("Inicio");
     }
 
@@ -67,7 +70,8 @@ public class InterfaceManager : MonoBehaviour
     {
         playerGG.SetPositionStart(level1StartPosition);
         ingameInterface.SetActive(true);
-        Ingame = true;    
+        Ingame = true;
+        moviments = 0;
     }
 
     // private IEnumerator EndLevel()
@@ -91,7 +95,6 @@ public class InterfaceManager : MonoBehaviour
                 timer -= Time.deltaTime;//reduzir o tempo a cada frame
                 color.a = Mathf.Lerp(1, 0 , timer/3f);//um lerp para transitar o alpha entre 1 e 0 de acordo com o tempo
                 img.color = color;
-                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
         while(timer > 0.7f);
         
@@ -154,5 +157,12 @@ public class InterfaceManager : MonoBehaviour
     {    
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate =  60;
+    }
+
+    public void AddOneMove()
+    {
+        moviments += 1;
+        if(Ingame)
+            movesText.text = moviments.ToString();
     }
 }
