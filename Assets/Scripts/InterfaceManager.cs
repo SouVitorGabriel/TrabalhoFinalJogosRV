@@ -36,12 +36,12 @@ public class InterfaceManager : MonoBehaviour
 
     void Awake() 
     {
-        gamePerformanceManager.Initialize();
+        //gamePerformanceManager.Initialize();
     }
     void Start()
     {
         SetVsync0_60FPS();
-        //gamePerformanceManager.Initialize();
+        gamePerformanceManager.Initialize();
     }
     
 
