@@ -7,6 +7,9 @@ using TMPro;
 
 public class InterfaceManager : MonoBehaviour
 {
+    [Header("Tuner")]
+    private _GamePerformanceManager gamePerformanceManager = new _GamePerformanceManager();
+
     [Header("UI's")]
     public Image img; //uma imagem para fazer fadeout por exemplo
     public GameObject mainMenu;
@@ -30,9 +33,15 @@ public class InterfaceManager : MonoBehaviour
     bool ingame;
 
     int actualLevel;
+
+    void Awake() 
+    {
+        gamePerformanceManager.Initialize();
+    }
     void Start()
     {
         SetVsync0_60FPS();
+        //gamePerformanceManager.Initialize();
     }
     
 
