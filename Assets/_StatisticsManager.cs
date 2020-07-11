@@ -20,4 +20,10 @@ public class _StatisticsManager : MonoBehaviour
     {
         
     }
+    
+    void SavePlayerPlay(int level, int moves, float time)
+    {
+        PlayerPrefs.SetInt("Level" + level + "moves", moves);
+        PlayerPrefs.SetFloat("Level" + level + "time", time);
+    }
 }

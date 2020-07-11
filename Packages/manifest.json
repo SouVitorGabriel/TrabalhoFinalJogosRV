@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.google.android.performancetuner": "file:D:/Computador/Downloads/com.google.android.performancetuner-1.0.0.tgz",
+    "com.google.android.performancetuner": "https://github.com/android/tuningfork.git",
     "com.unity.cinemachine": "2.5.0",
     "com.unity.device-simulator": "2.2.2-preview",
     "com.unity.ide.vscode": "1.2.1",

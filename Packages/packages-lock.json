@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "com.google.android.performancetuner": {
-      "version": "file:D:/Computador/Downloads/com.google.android.performancetuner-1.0.0.tgz",
+      "version": "https://github.com/android/tuningfork.git",
       "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "2de7a6648b896ea1ab9dd8f0dec5bcfe787ba19c"
     },
     "com.unity.cinemachine": {
       "version": "2.5.0",
