@@ -25,6 +25,7 @@ public class InterfaceManager : MonoBehaviour
 
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
+    public Vector3 level2StartPosition;
     public Vector3 level1CameraPosition;
     public Vector3 level1CameraRotation;
 
@@ -57,6 +58,12 @@ public class InterfaceManager : MonoBehaviour
         PreparingLevel1();
     }
 
+    public void Playlevel2()
+    {
+        PlayAnimation();
+        PreparingLevel2();
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -78,6 +85,14 @@ public class InterfaceManager : MonoBehaviour
     public void PreparingLevel1()
     {
         playerGG.SetPositionStart(level1StartPosition);
+        ingameInterface.SetActive(true);
+        Ingame = true;
+        moviments = 0;
+    }
+
+    public void PreparingLevel2()
+    {
+        playerGG.SetPositionStart(level2StartPosition);
         ingameInterface.SetActive(true);
         Ingame = true;
         moviments = 0;

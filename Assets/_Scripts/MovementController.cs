@@ -19,6 +19,8 @@ public class MovementController : MonoBehaviour
     public bool direita;
     public bool atras;
 
+    public bool praBaixo;
+
     private bool frenteLock;
     private bool atrasLock;
     private bool direitaLock;
@@ -88,6 +90,12 @@ public class MovementController : MonoBehaviour
             esquerda = false;
         }
 
+        if(praBaixo)
+        {
+            Fall();
+            praBaixo = false;
+        }
+
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
         {
             ////transform.localEulerAngles = currentDirection;
@@ -105,6 +113,7 @@ public class MovementController : MonoBehaviour
                     interfaceManager.AddOneMove();
                 }
             }
+            SeraQueCai();
             Ganhei();
         }
     }
@@ -224,5 +233,47 @@ public class MovementController : MonoBehaviour
         nextPos = Vector3.forward;
         transform.position = pos;
         destination = pos;
+    }
+
+
+    void SeraQueCai()
+    {
+        Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
+        Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
+
+        RaycastHit hit2;
+
+        if(Physics.Raycast(myRayDown, out hit2, 0.5f))
+        {
+            if(hit2.collider.tag == "Crackable")
+            {
+                _CrackBlock cBlock = hit2.collider.gameObject.GetComponent<_CrackBlock>();
+
+                cBlock.Fall();
+                if(cBlock.Cracks == 0)
+                {
+                    Fall();
+                    Invoke("FunGanhou", 1f);
+                }
+            }
+        }
+    }
+
+    public void Fall()
+    {
+        StartCoroutine(CorroutineFall());
+    }
+
+    IEnumerator CorroutineFall()
+    {
+        float timer = 1f;
+        do
+        {
+            timer -= Time.deltaTime;//reduzir o tempo a cada frame
+            destination = transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.25f, timer), transform.localPosition.z);
+
+            yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0f);
     }
 }

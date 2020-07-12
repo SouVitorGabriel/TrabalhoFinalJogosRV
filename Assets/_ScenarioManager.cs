@@ -8,7 +8,7 @@ public class _ScenarioManager : MonoBehaviour
     public GameObject doorRight;
     public GameObject doorLeft;
     
-    float vel = 0.5f;
+    //float vel = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +42,21 @@ public class _ScenarioManager : MonoBehaviour
 
     public void ResetPortinhas()
     {
-        doorLeft.transform.localPosition = new Vector3(2.72f, doorLeft.transform.localPosition.y, doorLeft.transform.localPosition.z);
+       StartCoroutine(CorroutineTimerOpenDoors());
+    }
 
-        doorRight.transform.localPosition = new Vector3(2.72f, doorRight.transform.localPosition.y, doorRight.transform.localPosition.z);
+    IEnumerator CorroutineTimerOpenDoors()
+    {
+        float timer = 1f;
+        do
+        {
+            timer -= Time.deltaTime;//reduzir o tempo a cada frame
+            doorLeft.transform.localPosition = new Vector3(Mathf.Lerp(2.72f, 1.1f, timer), doorLeft.transform.localPosition.y, doorLeft.transform.localPosition.z);
+
+            doorRight.transform.localPosition = new Vector3(Mathf.Lerp(-2.72f, -1.1f, timer), doorRight.transform.localPosition.y, doorRight.transform.localPosition.z);
+
+            yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0f);
     }
 }
