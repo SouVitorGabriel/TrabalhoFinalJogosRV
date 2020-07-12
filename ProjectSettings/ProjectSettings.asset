@@ -245,7 +245,7 @@ PlayerSettings:
   templateDefaultScene: Assets/Scenes/SampleScene.unity
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 2
-  androidSplashScreen: {fileID: 2800000, guid: 55027e4e09b2f0b4fbe9b7452a4eb8da, type: 3}
+  androidSplashScreen: {fileID: 2800000, guid: e2dbda6c35fc20b479ab1cbce6c340d3, type: 3}
   AndroidKeystoreName: D:/Projetos/keystores/Paciencia.keystore
   AndroidKeyaliasName: trabfinaljogos
   AndroidBuildApkPerCpuArchitecture: 0

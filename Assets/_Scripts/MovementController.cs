@@ -253,16 +253,35 @@ public class MovementController : MonoBehaviour
                 if(cBlock.Cracks == 0)
                 {
                     Fall();
-                    Invoke("FunGanhou", 1f);
+                    Invoke("FunGanhou", 3f);
                 }
             }
         }
     }
 
+    IEnumerator CorroutinePreFall()
+    {
+        float timer = 1f;
+        do
+        {
+            timer -= Time.deltaTime;
+            
+            if(timer <= 0.2f)
+            {
+                StartCoroutine(CorroutineFall());
+            }
+
+            yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0f);
+    }
+
     public void Fall()
     {
-        StartCoroutine(CorroutineFall());
+        StartCoroutine(CorroutinePreFall());
     }
+
+
 
     IEnumerator CorroutineFall()
     {
@@ -270,7 +289,7 @@ public class MovementController : MonoBehaviour
         do
         {
             timer -= Time.deltaTime;//reduzir o tempo a cada frame
-            destination = transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.25f, timer), transform.localPosition.z);
+            destination = transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.1f, timer), transform.localPosition.z);
 
             yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
