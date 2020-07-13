@@ -6,11 +6,14 @@ using Cinemachine;
 public class MovementController : MonoBehaviour
 {
     [Header("Managers")]
+
+    public GameObject eu;
     public InterfaceManager interfaceManager;
     public _ScenarioManager scenarioManager;
 
     [Header("Booleanas de teste")]
     public GameObject ganhou;
+    public GameObject perdeu;
 
     public CinemachineVirtualCamera cineMachineVCamera;
     [Header("Booleanas de teste")]
@@ -64,7 +67,6 @@ public class MovementController : MonoBehaviour
             currentDirection = upOrFront;
             canMove = true;
             frente = false;
-            cBlock.CanCrack = true;
         }
 
         if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || atras)
@@ -73,7 +75,6 @@ public class MovementController : MonoBehaviour
             currentDirection = downOrBack;
             canMove = true;
             atras = false;
-            cBlock.CanCrack = true;
         }
 
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || direita)
@@ -82,7 +83,6 @@ public class MovementController : MonoBehaviour
             currentDirection = right;
             canMove = true;
             direita = false;
-            cBlock.CanCrack = true;
         }
 
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || esquerda)
@@ -91,14 +91,12 @@ public class MovementController : MonoBehaviour
             currentDirection = left;
             canMove = true;
             esquerda = false;
-            cBlock.CanCrack = true;
         }
 
         if(praBaixo)
         {
-            Fall();
+            nextPos = Vector3.down;
             praBaixo = false;
-            cBlock.CanCrack = true;
         }
 
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
@@ -119,7 +117,6 @@ public class MovementController : MonoBehaviour
                     //MarcaUm10(1);
                 }
             }
-            OndeTo();
             Ganhei();
         }
     }
@@ -220,14 +217,30 @@ public class MovementController : MonoBehaviour
         ganhou.SetActive(true);
     }
 
+    void FunPerdeu()
+    {
+        perdeu.SetActive(true);
+    }
+
     public void SetPositionStart(Vector3 pos)
     {
-        cineMachineVCamera.Follow = gameObject.transform;
+        // cineMachineVCamera.m_Follow = this.transform;
+        // CinemachineTransposer cinemachineTransposer = cineMachineVCamera.GetCinemachineComponent<CinemachineTransposer>();
+        // cinemachineTransposer.m_FollowOffset =  new Vector3 (1.523998f, 1.81f, -1.950998f);
         currentDirection = upOrFront;
         nextPos = Vector3.forward;
         transform.position = pos;
         destination = pos;
+        SetCameraFollow();
     }
+
+    void SetCameraFollow()
+    {
+        cineMachineVCamera.Follow = eu.transform;
+        CinemachineTransposer cinemachineTransposer = cineMachineVCamera.GetCinemachineComponent<CinemachineTransposer>();
+        cinemachineTransposer.m_FollowOffset =  new Vector3 (1.523998f, 1.81f, -1.950998f);
+    }
+
 
     _CrackBlock cBlock;
     void SeraQueCai()
@@ -258,7 +271,7 @@ public class MovementController : MonoBehaviour
 
     IEnumerator CorroutinePreFall()
     {
-        float timer = 0.6f;
+        float timer = 0.4f;
         do
         {
             timer -= Time.deltaTime;
@@ -303,7 +316,11 @@ public class MovementController : MonoBehaviour
         {
             timer -= Time.deltaTime;//reduzir o tempo a cada frame
             destination = transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.1f, timer), transform.localPosition.z);
-
+            //praBaixo = true;
+            if(timer <= 0.2f)
+            {
+                FunPerdeu();
+            }
             yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
         while(timer > 0f);

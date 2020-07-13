@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class InterfaceManager : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class InterfaceManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject levelSelectionMenu;
     public GameObject ingameInterface;
-    public GameObject finalLevel1;
+    public GameObject finalLevel1Win;
+    public GameObject finalLevel1Lose;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI movesText;
 
@@ -24,6 +26,8 @@ public class InterfaceManager : MonoBehaviour
     public _ScenarioManager scenarioManager;
 
     public EnemyMovementController enemy;
+
+    public CinemachineVirtualCamera cineMachineVirtual;
 
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
@@ -79,12 +83,14 @@ public class InterfaceManager : MonoBehaviour
     public void Reiniciar()
     {
         ingameInterface.SetActive(false);
-        finalLevel1.SetActive(false);
+        finalLevel1Win.SetActive(false);
+        finalLevel1Lose.SetActive(false);
         mainMenu.SetActive(true);
         playerGG.SetPositionStart(level1StartPosition);
         Ingame = false;
         moviments = 0;
         scenarioManager.ResetPortinhas();
+        //cineMachineVirtual.Follow = playerGG.gameObject.transform;
         //SceneManager.LoadScene("Inicio");
     }
 

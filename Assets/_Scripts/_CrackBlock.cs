@@ -15,10 +15,12 @@ public class _CrackBlock : MonoBehaviour
 
     private int localMoves = 0;
 
+    private Vector3 initialpos;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialpos = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -34,6 +36,14 @@ public class _CrackBlock : MonoBehaviour
         }
         WhoIsInMe();
         Debug.Log("Cancrack: " + canCrack + " LocaMoves: " + localMoves + " ManagerMoves: " + interfaceManager.Moviments);
+    }
+
+    void Recomeco()
+    {
+        transform.localPosition = initialpos;
+        localMoves = 0;
+        crack1.SetActive(true);
+        cracks = 1;
     }
 
     void WhoIsInMe()
@@ -72,6 +82,7 @@ public class _CrackBlock : MonoBehaviour
         {
             Fall();
             player.Fall();
+            
         }
     }
 
@@ -88,6 +99,10 @@ public class _CrackBlock : MonoBehaviour
             timer -= Time.deltaTime;//reduzir o tempo a cada frame
             transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.75f, timer), transform.localPosition.z);
 
+            if(timer <= 0.1f)
+            {
+                Recomeco();
+            }
             yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
         while(timer > 0f);
