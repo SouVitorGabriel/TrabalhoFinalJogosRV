@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MovementController : MonoBehaviour
+public class EnemyMovementController : MonoBehaviour
 {
     [Header("Managers")]
     public InterfaceManager interfaceManager;
@@ -18,9 +18,6 @@ public class MovementController : MonoBehaviour
     public bool esquerda;
     public bool direita;
     public bool atras;
-
-    public bool praBaixo;
-
     private bool frenteLock;
     private bool atrasLock;
     private bool direitaLock;
@@ -42,6 +39,8 @@ public class MovementController : MonoBehaviour
     float rayLength = 1f;
 
     bool canMove = false;
+
+    int actualMoves = 0;
     void Start()
     {
         currentDirection = upOrFront;
@@ -51,61 +50,59 @@ public class MovementController : MonoBehaviour
 
     void Update()
     {
+        if(actualMoves != interfaceManager.Moviments)
+        {
+            int r = Random.Range(1, 4);
+            Debug.Log("Random: " + r);
+            if(r == 1)
+                frente = true;
+            if(r == 2)
+                atras = true;
+            if(r == 3)
+                esquerda = true;
+            if(r == 4)
+                direita = true;
+            actualMoves = interfaceManager.Moviments;
+        }
         Move();
     }
-
     public void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || frente)
+        if(frente)
         {
             nextPos = Vector3.forward;
             currentDirection = upOrFront;
             canMove = true;
             frente = false;
-            cBlock.CanCrack = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || atras)
+        if(atras)
         {
             nextPos = Vector3.back;
             currentDirection = downOrBack;
             canMove = true;
             atras = false;
-            cBlock.CanCrack = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || direita)
+        if(direita)
         {
             nextPos = Vector3.right;
             currentDirection = right;
             canMove = true;
             direita = false;
-            cBlock.CanCrack = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || esquerda)
+        if(esquerda)
         {
             nextPos = Vector3.left;
             currentDirection = left;
             canMove = true;
             esquerda = false;
-            cBlock.CanCrack = true;
         }
-
-        if(praBaixo)
-        {
-            Fall();
-            praBaixo = false;
-            cBlock.CanCrack = true;
-        }
-
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
         {
-            ////transform.localEulerAngles = currentDirection;
-
-
            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(currentDirection), 8f * Time.deltaTime);
 
             if(canMove)
@@ -115,12 +112,8 @@ public class MovementController : MonoBehaviour
                     destination = transform.position + nextPos;
                     direction = nextPos;
                     canMove = false;
-                    interfaceManager.AddOneMove();
-                    MarcaUm10(1);
                 }
             }
-            
-            Ganhei();
         }
     }
 
@@ -162,6 +155,7 @@ public class MovementController : MonoBehaviour
             {
                 if(hitL.collider.tag == "Wall")
                 {
+                    direita = true;
                     return false;
                 }
             }
@@ -188,50 +182,6 @@ public class MovementController : MonoBehaviour
         }
         return true;        
     }
-
-
-    void Ganhei()
-    {
-        // Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
-        // Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
-
-        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
-        // Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
-
-        // Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.right);
-        // Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
-
-        // Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.right);
-        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
-
-        Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
-        Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
-
-        RaycastHit hit2;
-        //Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
-
-        if(Physics.Raycast(myRayDown, out hit2, 0.5f))
-        {
-            if(hit2.collider.tag == "Ganhou")
-            {
-                interfaceManager.Ingame = false;
-                Debug.Log("GANHEI!");
-                cineMachineVCamera.Follow = null;
-                for (int i = 0; i <= 5; i++)
-                {
-                    frente = true;
-                }
-                scenarioManager.FecharPortinhas();
-                Invoke("FunGanhou", 1f);
-            }
-        }
-    }
-
-    void FunGanhou()
-    {
-        ganhou.SetActive(true);
-    }
-
     public void SetPositionStart(Vector3 pos)
     {
         cineMachineVCamera.Follow = gameObject.transform;
@@ -239,92 +189,5 @@ public class MovementController : MonoBehaviour
         nextPos = Vector3.forward;
         transform.position = pos;
         destination = pos;
-    }
-
-    _CrackBlock cBlock;
-    void SeraQueCai()
-    {
-        Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
-        Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
-
-        RaycastHit hit2;
-
-        if(Physics.Raycast(myRayDown, out hit2, 0.5f))
-        {
-            if(hit2.collider.tag == "Crackable")
-            {
-                Debug.Log("To aqui antes de pegar o bloco;");
-                cBlock = hit2.collider.gameObject.GetComponent<_CrackBlock>();
-                if(cBlock.Cracks == 0)
-                {
-                    Debug.Log("Pelo visto caí");
-                    Invoke("FunGanhou", 3f);
-                }
-                Debug.Log("Mandei o block crack");
-                cBlock.PleaseCrack(cBlock.Cracks);
-                Debug.Log("Bloqueiei o bloco de fazer crack");
-                cBlock.CanCrack = false;
-            }
-        }
-    }
-
-    IEnumerator CorroutinePreFall()
-    {
-        float timer = 0.6f;
-        do
-        {
-            timer -= Time.deltaTime;
-            
-            if(timer <= 0.2f)
-            {
-                StartCoroutine(CorroutineFall());
-            }
-
-            yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
-        }
-        while(timer > 0f);
-    }
-
-    public void Fall()
-    {
-        StartCoroutine(CorroutinePreFall());
-    }
-
-
-
-    IEnumerator CorroutineFall()
-    {
-        float timer = 1f;
-        do
-        {
-            timer -= Time.deltaTime;//reduzir o tempo a cada frame
-            destination = transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.1f, timer), transform.localPosition.z);
-
-            yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
-        }
-        while(timer > 0f);
-    }
-
-    void MarcaUm10(int n)
-    {
-        StartCoroutine(CorroutineMarcaUm10(1));
-    }
-    IEnumerator CorroutineMarcaUm10(int n)
-    {
-        float timer = 1f;
-        do
-        {
-            timer -= Time.deltaTime;//reduzir o tempo a cada frame
-
-            if(timer <= 0.2f)
-            {
-                if(n == 1)
-                {
-                    SeraQueCai();
-                }
-            }
-            yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
-        }
-        while(timer > 0f);
     }
 }

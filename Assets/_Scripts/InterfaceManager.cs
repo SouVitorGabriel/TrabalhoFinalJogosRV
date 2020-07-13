@@ -23,6 +23,8 @@ public class InterfaceManager : MonoBehaviour
     public MovementController playerGG;
     public _ScenarioManager scenarioManager;
 
+    public EnemyMovementController enemy;
+
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
     public Vector3 level2StartPosition;
@@ -31,6 +33,7 @@ public class InterfaceManager : MonoBehaviour
 
     float timer = 0f;
     int moviments = 0;
+    public int Moviments {get{return moviments;}}
     bool ingame;
 
     int actualLevel;
@@ -186,6 +189,7 @@ public class InterfaceManager : MonoBehaviour
     public void AddOneMove()
     {
         moviments += 1;
+        enemy.esquerda = true;
         if(Ingame)
             movesText.text = moviments.ToString();
     }

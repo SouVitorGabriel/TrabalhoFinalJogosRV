@@ -8,9 +8,9 @@ public class _CrackBlock : MonoBehaviour
 
     public InterfaceManager interfaceManager;
 
-    private int cracks = 0;
+    private int cracks = 1;
 
-    public bool test;
+    private bool canCrack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +22,22 @@ public class _CrackBlock : MonoBehaviour
     {
     }
 
-    public void Crack()
+    public void PleaseCrack(int c)
     {
-        if(cracks == 2)
+        if(canCrack)
         {
-            crack1.SetActive(false);
-            Cracks = Cracks - 1;
+            Debug.Log("Me pediram aqui pra fazer crack: " + c);
+            if(c == 1)
+            {
+                crack1.SetActive(false);
+                Cracks = Cracks - 1;
+            }
+            if(c == 0)
+            {
+                Fall();
+            }
         }
+        
         
     }
 
@@ -39,11 +48,11 @@ public class _CrackBlock : MonoBehaviour
 
     IEnumerator CorroutineFall()
     {
-        float timer = 1f;
+        float timer = 2f;
         do
         {
             timer -= Time.deltaTime;//reduzir o tempo a cada frame
-            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.25f, timer), transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.75f, timer), transform.localPosition.z);
 
             yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
@@ -51,4 +60,5 @@ public class _CrackBlock : MonoBehaviour
     }
 
     public int Cracks {get {return cracks;} set{cracks = value;}}
+    public bool CanCrack {get {return canCrack;} set{canCrack = value;}}
 }
