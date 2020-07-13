@@ -116,10 +116,10 @@ public class MovementController : MonoBehaviour
                     direction = nextPos;
                     canMove = false;
                     interfaceManager.AddOneMove();
-                    MarcaUm10(1);
+                    //MarcaUm10(1);
                 }
             }
-            
+            OndeTo();
             Ganhei();
         }
     }
@@ -192,18 +192,6 @@ public class MovementController : MonoBehaviour
 
     void Ganhei()
     {
-        // Ray myRaFront = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.forward);
-        // Debug.DrawRay(myRaFront.origin, myRaFront.direction, Color.red);
-
-        // Ray myRayBack = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.forward);
-        // Debug.DrawRay(myRayBack.origin, myRayBack.direction, Color.magenta);
-
-        // Ray myRayRight = new Ray(transform.position + new Vector3(0, 0.25f, 0), transform.right);
-        // Debug.DrawRay(myRayRight.origin, myRayRight.direction, Color.blue);
-
-        // Ray myRayLeft = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.right);
-        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.cyan);
-
         Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
         Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
 
@@ -261,7 +249,7 @@ public class MovementController : MonoBehaviour
                     Invoke("FunGanhou", 3f);
                 }
                 Debug.Log("Mandei o block crack");
-                cBlock.PleaseCrack(cBlock.Cracks);
+                //cBlock.PleaseCrack(cBlock.Cracks);
                 Debug.Log("Bloqueiei o bloco de fazer crack");
                 cBlock.CanCrack = false;
             }
@@ -291,6 +279,22 @@ public class MovementController : MonoBehaviour
     }
 
 
+    void OndeTo()
+    {
+        Ray myRayFall = new Ray(transform.position + new Vector3(0, 0.25f, 0), -transform.up);
+        Debug.DrawRay(myRayFall.origin, myRayFall.direction, Color.yellow);
+
+        RaycastHit hit4;
+        //Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
+
+        if(Physics.Raycast(myRayFall, out hit4, 0.5f))
+        {
+            if(hit4.collider.tag == "Crackable")
+            {
+                Debug.Log("TO EM CIMA DO BLOCO QUE CAI CARAIO");
+            }
+        }
+    }
 
     IEnumerator CorroutineFall()
     {

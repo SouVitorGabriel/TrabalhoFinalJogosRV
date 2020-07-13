@@ -2930,19 +2930,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1759015030}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1568927747
-BoxCollider:
+--- !u!54 &1568927747
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568927745}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1606776031
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,6 +3769,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 735296059325039778, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
+    - target: {fileID: 1765871925329848758, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
+    - target: {fileID: 1776039393962534804, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
+    - target: {fileID: 2406419034165876287, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
     - target: {fileID: 3309107606249378644, guid: 9cb5833644e27a0429b3ff7a931d5948,
         type: 3}
       propertyPath: m_Name
@@ -3826,6 +3849,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3696242040771694806, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
+    - target: {fileID: 7793252230139275594, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
+    - target: {fileID: 8294476948387707243, guid: 9cb5833644e27a0429b3ff7a931d5948,
+        type: 3}
+      propertyPath: interfaceManager
+      value: 
+      objectReference: {fileID: 116624920}
     m_RemovedComponents:
     - {fileID: 864738408925102971, guid: 9cb5833644e27a0429b3ff7a931d5948, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9cb5833644e27a0429b3ff7a931d5948, type: 3}
@@ -5030,6 +5068,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3250323863584802198, guid: 22aebce7ef4371b4795ea35713f5210d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6948853961603855787, guid: 22aebce7ef4371b4795ea35713f5210d,
         type: 3}
       propertyPath: m_IsTrigger

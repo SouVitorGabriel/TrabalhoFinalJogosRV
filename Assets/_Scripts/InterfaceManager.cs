@@ -33,7 +33,7 @@ public class InterfaceManager : MonoBehaviour
 
     float timer = 0f;
     int moviments = 0;
-    public int Moviments {get{return moviments;}}
+    
     bool ingame;
 
     int actualLevel;
@@ -48,6 +48,10 @@ public class InterfaceManager : MonoBehaviour
         gamePerformanceManager.Initialize();
     }
     
+    void Update()
+    {
+        Debug.Log("Meus movimentos são: " + Moviments);
+    }
 
     //Funções dos botões do Menu Principal
     public void _TurnOnLevelSelection()
@@ -193,4 +197,6 @@ public class InterfaceManager : MonoBehaviour
         if(Ingame)
             movesText.text = moviments.ToString();
     }
+
+    public int Moviments {get{return moviments;}}
 }

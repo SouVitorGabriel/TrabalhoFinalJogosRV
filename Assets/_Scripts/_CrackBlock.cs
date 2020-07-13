@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class _CrackBlock : MonoBehaviour
 {
+    MovementController player;
     public GameObject crack1;
 
     public InterfaceManager interfaceManager;
@@ -11,6 +12,9 @@ public class _CrackBlock : MonoBehaviour
     private int cracks = 1;
 
     private bool canCrack = true;
+
+    private int localMoves = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,25 +24,55 @@ public class _CrackBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (interfaceManager.Moviments > (localMoves + 1))
+        {
+            canCrack = true;
+        }
+        else
+        {
+            canCrack = false;
+        }
+        WhoIsInMe();
+        Debug.Log("Cancrack: " + canCrack + " LocaMoves: " + localMoves + " ManagerMoves: " + interfaceManager.Moviments);
     }
 
-    public void PleaseCrack(int c)
+    void WhoIsInMe()
     {
+        Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.up);
+        Debug.DrawRay(myRayDown.origin, myRayDown.direction, Color.black);
+
+        RaycastHit hit2;
+        //Debug.DrawRay(ganheiRay.origin, ganheiRay.direction, Color.green);
+
         if(canCrack)
         {
-            Debug.Log("Me pediram aqui pra fazer crack: " + c);
-            if(c == 1)
+            if(Physics.Raycast(myRayDown, out hit2, 0.5f))
             {
-                crack1.SetActive(false);
-                Cracks = Cracks - 1;
-            }
-            if(c == 0)
-            {
-                Fall();
-            }
+                if(hit2.collider.tag == "Player")
+                {
+                    player = hit2.collider.gameObject.GetComponent<MovementController>();
+                    localMoves = interfaceManager.Moviments;
+                    canCrack = false;
+                    Debug.Log("Player AQUI EM CIMA CARAIO");
+                    PleaseCrack();
+                }
+            }   
         }
-        
-        
+    }
+
+    public void PleaseCrack()
+    {
+        Debug.Log("Entrei aqu ino crak; ");
+        if(cracks == 1)
+        {
+            crack1.SetActive(false);
+            cracks = cracks - 1;
+        }
+        else if(cracks == 0)
+        {
+            Fall();
+            player.Fall();
+        }
     }
 
     public void Fall()
