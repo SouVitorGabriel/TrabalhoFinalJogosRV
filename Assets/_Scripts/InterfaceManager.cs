@@ -28,10 +28,13 @@ public class InterfaceManager : MonoBehaviour
 
     public CrackBlockManager cracksManager;
 
+    public EnemyMovementController enemy;
+
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
     public Vector3 level2StartPosition;
     public Vector3 level3StartPosition;
+    public Vector3 level4StartPosition;
     public Vector3 level1CameraPosition;
     public Vector3 level1CameraRotation;
 
@@ -94,9 +97,26 @@ public class InterfaceManager : MonoBehaviour
         currentLevel = 3;
     }
 
+    public void PlayLevel4()
+    {
+        PlayAnimation();
+        PreparingLevel4();
+        currentLevel = 4;
+    }
+
     void PreparingLevel3()
     {
         playerGG.SetPositionStart(level3StartPosition);
+        //levelSelectionMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        ingameInterface.SetActive(true);
+        Ingame = true;
+        moviments = 0;
+    }
+
+    void PreparingLevel4()
+    {
+        playerGG.SetPositionStart(level4StartPosition);
         //levelSelectionMenu.SetActive(false);
         mainMenu.SetActive(false);
         ingameInterface.SetActive(true);
@@ -117,6 +137,7 @@ public class InterfaceManager : MonoBehaviour
     public void Reiniciar(int i = 0)
     {
         PlayAnimation();
+        enemy.SetPositionStart(new Vector3(-100.213f, 0f, 111.15f));
         ingameInterface.SetActive(false);
         finalLevel1Win.SetActive(false);
         finalLevel1Lose.SetActive(false);
@@ -143,6 +164,10 @@ public class InterfaceManager : MonoBehaviour
             else if(currentLevel == 3)
             {
                 PlayLevel3();
+            }
+            else if(currentLevel == 4)
+            {
+                PlayLevel4();
             }
         }
         //cineMachineVirtual.Follow = playerGG.gameObject.transform;

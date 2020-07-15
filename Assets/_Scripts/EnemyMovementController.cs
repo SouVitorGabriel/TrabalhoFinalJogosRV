@@ -52,20 +52,20 @@ public class EnemyMovementController : MonoBehaviour
 
     void Update()
     {
-        if(actualMoves != interfaceManager.Moviments)
-        {
-            int r = Random.Range(1, 4);
-            //Debug.Log("Random: " + r);
-            if(r == 1)
-                frente = true;
-            if(r == 2)
-                atras = true;
-            if(r == 3)
-                esquerda = true;
-            if(r == 4)
-                direita = true;
-            actualMoves = interfaceManager.Moviments;
-        }
+        // if(actualMoves != interfaceManager.Moviments)
+        // {
+        //     int r = Random.Range(1, 4);
+        //     //Debug.Log("Random: " + r);
+        //     if(r == 1)
+        //         frente = true;
+        //     if(r == 2)
+        //         atras = true;
+        //     if(r == 3)
+        //         esquerda = true;
+        //     if(r == 4)
+        //         direita = true;
+        //     actualMoves = interfaceManager.Moviments;
+        // }
         Move();
     }
     public void Move()
@@ -246,7 +246,6 @@ public class EnemyMovementController : MonoBehaviour
 
     public void SetPositionStart(Vector3 pos)
     {
-        cineMachineVCamera.Follow = gameObject.transform;
         currentDirection = upOrFront;
         nextPos = Vector3.forward;
         transform.position = pos;

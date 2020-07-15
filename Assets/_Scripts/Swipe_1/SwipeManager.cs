@@ -9,27 +9,33 @@ public class SwipeManager : MonoBehaviour
     public Transform player;
     private Vector3 desiredPosition;
 
+    public EnemyMovementController enemy;
+
     private void Update()
     {
         if(swipeControls.SwipeLeft)
         {
             //desiredPosition += Vector3.left;
             moveController.esquerda = true;
+            enemy.esquerda = true;
         }
         if(swipeControls.SwipeRight)
         {
             // desiredPosition += Vector3.right;
             moveController.direita = true;
+            enemy.direita = true;
         }
         if(swipeControls.SwipeUp)
         {
             //desiredPosition += Vector3.forward;
             moveController.frente = true;
+            enemy.atras = true;
         }
         if(swipeControls.SwipeDown)
         {
         //    desiredPosition += Vector3.back;
             moveController.atras = true;
+            enemy.frente = true;
         }
         if(swipeControls.DoubleToque)
         {
