@@ -55,7 +55,7 @@ public class EnemyMovementController : MonoBehaviour
         if(actualMoves != interfaceManager.Moviments)
         {
             int r = Random.Range(1, 4);
-            Debug.Log("Random: " + r);
+            //Debug.Log("Random: " + r);
             if(r == 1)
                 frente = true;
             if(r == 2)

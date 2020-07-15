@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class SwipeController : MonoBehaviour
 {
-    private bool tap, swipeLeft, swipeRight, swipeUp,  swipeDown;
+    private float doubleToqueDelta = 0.5f;
+    private bool tap, doubleToque, swipeLeft, swipeRight, swipeUp,  swipeDown;
     private Vector2 startTouch, swipeDelta;
     private float lastTap;
     private float sqrDeadzone;
     private bool isDraging = false;
     private void Update()
     {
-        tap  = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+        tap  = doubleToque = swipeLeft = swipeRight = swipeUp = swipeDown = false;
 
         #region Unity StandAlone Inputs
             if(Input.GetMouseButtonDown(0))
             {
                 tap = true;
                 isDraging = true;
+                doubleToque = Time.time - lastTap < doubleToqueDelta;
+                lastTap = Time.time;
                 startTouch = Input.mousePosition;
             }
             else if(Input.GetMouseButtonUp(0))
@@ -33,6 +36,8 @@ public class SwipeController : MonoBehaviour
             if(Input.touches[0].phase == TouchPhase.Began)
             {
                 tap = true;
+                doubleToque = Time.time - lastTap < doubleToqueDelta;
+                lastTap = Time.time;
                 isDraging = true;
             }
             else if(Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
@@ -97,5 +102,6 @@ public class SwipeController : MonoBehaviour
     public bool SwipeUp {get {return swipeUp;}}
     public bool SwipeDown {get {return swipeDown;}}
     public bool Tap {get {return tap;}}
+    public bool DoubleToque {get {return doubleToque;}}
     #endregion
 }

@@ -31,7 +31,14 @@ public class SwipeManager : MonoBehaviour
         //    desiredPosition += Vector3.back;
             moveController.atras = true;
         }
-        
+        if(swipeControls.DoubleToque)
+        {
+            Debug.Log("DOIS TOQUES AQUI");
+        }
+        if(swipeControls.Tap)
+        {
+            
+        }
        //player.transform.position = Vector3.MoveTowards(player.transform.position, desiredPosition, 3f * Time.deltaTime);
     }
 }

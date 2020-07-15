@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class _Scenario : MonoBehaviour
 {
+    [Header("Configs")]
+
+    public _ButtonLogic[] buttons;
+    public GameObject groundTrigger;
+
+    public GameObject[] collidersToOpen;
+    public bool isNormalOpen;
     [Header("Portinhas")]
     public GameObject doorRight;
     public GameObject doorLeft;
+
+    
+
     
     //float vel = 0.5f;
     // Start is called before the first frame update
@@ -18,6 +28,16 @@ public class _Scenario : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ActivateGround()
+    {
+        groundTrigger.tag = "Ganhou";
+        foreach(GameObject gO in collidersToOpen)
+        {
+            gO.SetActive(false);
+        }
+        AbrirPortinhas();
     }
 
     public void FecharPortinhas()
@@ -42,7 +62,31 @@ public class _Scenario : MonoBehaviour
 
     public void ResetPortinhas()
     {
-       StartCoroutine(CorroutineTimerOpenDoors());
+        if(buttons.Length > 0)
+        {
+            foreach(_ButtonLogic bu in buttons)
+            {
+                bu.ResetButton();
+            }
+        }
+        if(isNormalOpen)
+        {
+            StartCoroutine(CorroutineTimerOpenDoors());
+        }
+        else
+        {
+            StartCoroutine(CorroutineTimerCloseDoors());
+        }
+        groundTrigger.tag = "Ground";
+        foreach(GameObject gO in collidersToOpen)
+        {
+            gO.SetActive(true);
+        }
+    }
+
+    public void AbrirPortinhas()
+    {
+        StartCoroutine(CorroutineTimerOpenDoors());
     }
 
     IEnumerator CorroutineTimerOpenDoors()

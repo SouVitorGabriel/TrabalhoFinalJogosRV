@@ -8,6 +8,7 @@ TagManager:
   - Ganhou
   - Ground
   - Crackable
+  - Button
   layers:
   - Default
   - TransparentFX

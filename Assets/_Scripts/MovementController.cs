@@ -112,12 +112,18 @@ public class MovementController : MonoBehaviour
             {
                 if(IsValid())
                 {
+                    
                     destination = transform.position + nextPos;
                     direction = nextPos;
                     canMove = false;
                     interfaceManager.AddOneMove();
                     //MarcaUm10(1);
                 }
+                else
+                {
+                    canMove = false;
+                }
+                ButtonCollid();
             }
             Ganhei();
         }
@@ -187,6 +193,73 @@ public class MovementController : MonoBehaviour
         }
         return true;        
     }
+
+    void ButtonCollid()
+    {
+        Ray myRaF = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.forward);
+        Debug.DrawRay(myRaF.origin, myRaF.direction, Color.black);
+
+        Ray myRayB = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.back);
+        Debug.DrawRay(myRayB.origin, myRayB.direction, Color.black);
+
+        Ray myRayR = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.right);
+        Debug.DrawRay(myRayR.origin, myRayR.direction, Color.black);
+
+        Ray myRayL = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.left);
+        Debug.DrawRay(myRayL.origin, myRayL.direction, Color.black);
+
+        // Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.down);
+        // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.black);
+
+        RaycastHit hitFf;
+        RaycastHit hitBb;
+        RaycastHit[] hitLl;
+        hitLl = Physics.RaycastAll(transform.position + new Vector3(0, 0.25f, 0), Vector3.left, rayLength);
+
+        RaycastHit hitRr;
+
+        if(Physics.Raycast(myRaF, out hitFf, rayLength))
+        {
+            if(hitFf.collider.tag == "Button")
+            {
+                Debug.Log("Beti no bottão");
+            }
+        }
+
+        foreach(RaycastHit ra in hitLl)
+        {
+            if(ra.collider.tag == "Button")
+            {
+                Debug.Log("Pelo amor de deus deu certo");
+                _ButtonLogic b = ra.collider.gameObject.GetComponent<_ButtonLogic>();
+                b.DoSomething();
+            }
+        }
+
+        // if(Physics.Raycast(myRayL, out hitLl, rayLength))
+        // {
+        //     if(hitLl.collider.tag == "Button")
+        //     {
+        //         Debug.Log("Beti no bottão");
+        //     }
+        // }
+
+        if(Physics.Raycast(myRayR, out hitRr, rayLength))
+        {
+            if(hitRr.collider.tag == "Button")
+            {
+                Debug.Log("Beti no bottão");
+            }
+        }
+        if(Physics.Raycast(myRayB, out hitBb, rayLength))
+        {
+            if(hitBb.collider.tag == "Button")
+            {
+                Debug.Log("Beti no bottão");
+            }
+        }
+    }
+
 
 
     void Ganhei()

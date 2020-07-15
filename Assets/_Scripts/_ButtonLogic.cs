@@ -1,13 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class _ButtonLogic : MonoBehaviour
 {
     [Header("Configs")]
+
+    public UnityEvent exec;
     public GameObject eixo;
+
+    public _Scenario scenario;
+
+    public string type;
     public bool aberto;
     public bool aberto2;
+
+    private bool alreadyPressed;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +40,22 @@ public class _ButtonLogic : MonoBehaviour
     }
 
 
+    public void DoSomething()
+    {
+        if(!alreadyPressed)
+        {
+            exec.Invoke();
+            OpenButton();
+            alreadyPressed = true;
+        }
 
+        // if(type == "JustOpenDoor")
+        // {
+        //     scenario.ActivateGround();
+        // }
+
+        
+    }
 
 
     public void OpenButton()
@@ -55,6 +79,7 @@ public class _ButtonLogic : MonoBehaviour
     public void ResetButton()
     {
        StartCoroutine(CorroutineFechado());
+       alreadyPressed = false;
     }
 
     IEnumerator CorroutineFechado()
