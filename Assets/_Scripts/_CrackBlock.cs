@@ -35,10 +35,10 @@ public class _CrackBlock : MonoBehaviour
             canCrack = false;
         }
         WhoIsInMe();
-        Debug.Log("Cancrack: " + canCrack + " LocaMoves: " + localMoves + " ManagerMoves: " + interfaceManager.Moviments);
+        //Debug.Log("Cancrack: " + canCrack + " LocaMoves: " + localMoves + " ManagerMoves: " + interfaceManager.Moviments);
     }
 
-    void Recomeco()
+    public void Recomeco()
     {
         transform.localPosition = initialpos;
         localMoves = 0;
@@ -63,7 +63,7 @@ public class _CrackBlock : MonoBehaviour
                     player = hit2.collider.gameObject.GetComponent<MovementController>();
                     localMoves = interfaceManager.Moviments;
                     canCrack = false;
-                    Debug.Log("Player AQUI EM CIMA CARAIO");
+                    //Debug.Log("Player AQUI EM CIMA CARAIO");
                     PleaseCrack();
                 }
             }   
@@ -98,11 +98,6 @@ public class _CrackBlock : MonoBehaviour
         {
             timer -= Time.deltaTime;//reduzir o tempo a cada frame
             transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Lerp(transform.localPosition.y, transform.localPosition.y -0.75f, timer), transform.localPosition.z);
-
-            if(timer <= 0.1f)
-            {
-                Recomeco();
-            }
             yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
         while(timer > 0f);

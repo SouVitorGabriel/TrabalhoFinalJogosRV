@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _ScenarioManager : MonoBehaviour
+public class _Scenario : MonoBehaviour
 {
     [Header("Portinhas")]
     public GameObject doorRight;

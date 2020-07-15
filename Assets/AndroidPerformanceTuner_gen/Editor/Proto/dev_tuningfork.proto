@@ -10,7 +10,7 @@ enum LoadingState {
 
 enum Scene {
     SCENE_INVALID = 0;
-    SCENE_ASSETSSCENESINICIO = 1;
+    SCENE_ASSETS_SCENESINICIO = 1;
 }
 
 message Annotation {

@@ -27,9 +27,9 @@ namespace Google.Android.PerformanceTuner {
             "Bi5TY2VuZSIfCg5GaWRlbGl0eVBhcmFtcxINCgVsZXZlbBgBIAEoBSpgCgxM",
             "b2FkaW5nU3RhdGUSGAoUTE9BRElOR1NUQVRFX0lOVkFMSUQQABIcChhMT0FE",
             "SU5HU1RBVEVfTk9UX0xPQURJTkcQARIYChRMT0FESU5HU1RBVEVfTE9BRElO",
-            "RxACKjgKBVNjZW5lEhEKDVNDRU5FX0lOVkFMSUQQABIcChhTQ0VORV9BU1NF",
-            "VFNTQ0VORVNJTklDSU8QAUIiqgIfR29vZ2xlLkFuZHJvaWQuUGVyZm9ybWFu",
-            "Y2VUdW5lcmIGcHJvdG8z"));
+            "RxACKjkKBVNjZW5lEhEKDVNDRU5FX0lOVkFMSUQQABIdChlTQ0VORV9BU1NF",
+            "VFNfU0NFTkVTSU5JQ0lPEAFCIqoCH0dvb2dsZS5BbmRyb2lkLlBlcmZvcm1h",
+            "bmNlVHVuZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Google.Android.PerformanceTuner.LoadingState), typeof(global::Google.Android.PerformanceTuner.Scene), }, new pbr::GeneratedClrTypeInfo[] {
@@ -49,7 +49,7 @@ namespace Google.Android.PerformanceTuner {
 
   public enum Scene {
     [pbr::OriginalName("SCENE_INVALID")] Invalid = 0,
-    [pbr::OriginalName("SCENE_ASSETSSCENESINICIO")] Assetsscenesinicio = 1,
+    [pbr::OriginalName("SCENE_ASSETS_SCENESINICIO")] AssetsScenesinicio = 1,
   }
 
   #endregion

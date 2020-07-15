@@ -9,7 +9,7 @@ public class MovementController : MonoBehaviour
 
     public GameObject eu;
     public InterfaceManager interfaceManager;
-    public _ScenarioManager scenarioManager;
+    public ManagerDeScenario managerDeScenario;
 
     [Header("Booleanas de teste")]
     public GameObject ganhou;
@@ -45,6 +45,8 @@ public class MovementController : MonoBehaviour
     float rayLength = 1f;
 
     bool canMove = false;
+
+    public bool gameplay = true;
     void Start()
     {
         currentDirection = upOrFront;
@@ -61,43 +63,43 @@ public class MovementController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || frente)
-        {
-            nextPos = Vector3.forward;
-            currentDirection = upOrFront;
-            canMove = true;
-            frente = false;
-        }
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || frente)
+            {
+                nextPos = Vector3.forward;
+                currentDirection = upOrFront;
+                canMove = true;
+                frente = false;
+            }
 
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || atras)
-        {
-            nextPos = Vector3.back;
-            currentDirection = downOrBack;
-            canMove = true;
-            atras = false;
-        }
+            if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || atras)
+            {
+                nextPos = Vector3.back;
+                currentDirection = downOrBack;
+                canMove = true;
+                atras = false;
+            }
 
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || direita)
-        {
-            nextPos = Vector3.right;
-            currentDirection = right;
-            canMove = true;
-            direita = false;
-        }
+            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || direita)
+            {
+                nextPos = Vector3.right;
+                currentDirection = right;
+                canMove = true;
+                direita = false;
+            }
 
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || esquerda)
-        {
-            nextPos = Vector3.left;
-            currentDirection = left;
-            canMove = true;
-            esquerda = false;
-        }
+            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || esquerda)
+            {
+                nextPos = Vector3.left;
+                currentDirection = left;
+                canMove = true;
+                esquerda = false;
+            }
 
-        if(praBaixo)
-        {
-            nextPos = Vector3.down;
-            praBaixo = false;
-        }
+            if(praBaixo)
+            {
+                nextPos = Vector3.down;
+                praBaixo = false;
+            }
 
         if(Vector3.Distance(destination, transform.position) <= 0.00001f)
         {
@@ -206,7 +208,7 @@ public class MovementController : MonoBehaviour
                 {
                     frente = true;
                 }
-                scenarioManager.FecharPortinhas();
+                managerDeScenario.FecharPortinhas();
                 Invoke("FunGanhou", 1f);
             }
         }
@@ -215,11 +217,20 @@ public class MovementController : MonoBehaviour
     void FunGanhou()
     {
         ganhou.SetActive(true);
+        interfaceManager.Ingame = false;
     }
 
     void FunPerdeu()
     {
         perdeu.SetActive(true);
+        interfaceManager.Ingame = false;
+    }
+
+    public void Morri()
+    {
+        Debug.Log("Morri");
+        perdeu.SetActive(true);
+        interfaceManager.Ingame = false;
     }
 
     public void SetPositionStart(Vector3 pos)

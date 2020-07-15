@@ -23,11 +23,10 @@ public class InterfaceManager : MonoBehaviour
 
     [Header("Controllers")]
     public MovementController playerGG;
-    public _ScenarioManager scenarioManager;
-
-    public EnemyMovementController enemy;
-
+    public ManagerDeScenario managerDeScenario;
     public CinemachineVirtualCamera cineMachineVirtual;
+
+    public CrackBlockManager cracksManager;
 
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
@@ -55,6 +54,14 @@ public class InterfaceManager : MonoBehaviour
     void Update()
     {
         Debug.Log("Meus movimentos são: " + Moviments);
+        if(ingame == false)
+        {
+            playerGG.gameplay = false;
+        }
+        else
+        {
+            playerGG.gameplay = true;
+        }
     }
 
     //Funções dos botões do Menu Principal
@@ -89,7 +96,8 @@ public class InterfaceManager : MonoBehaviour
         playerGG.SetPositionStart(level1StartPosition);
         Ingame = false;
         moviments = 0;
-        scenarioManager.ResetPortinhas();
+        managerDeScenario.ResetdePortinhas();
+        cracksManager.ResetAll();
         //cineMachineVirtual.Follow = playerGG.gameObject.transform;
         //SceneManager.LoadScene("Inicio");
     }
@@ -199,9 +207,11 @@ public class InterfaceManager : MonoBehaviour
     public void AddOneMove()
     {
         moviments += 1;
-        enemy.esquerda = true;
-        if(Ingame)
+        if(ingame)
+        {
             movesText.text = moviments.ToString();
+        }
+        
     }
 
     public int Moviments {get{return moviments;}}
