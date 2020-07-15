@@ -36,6 +36,8 @@ public class InterfaceManager : MonoBehaviour
 
     float timer = 0f;
     int moviments = 0;
+
+    int currentLevel = 0;
     
     bool ingame;
 
@@ -74,12 +76,14 @@ public class InterfaceManager : MonoBehaviour
     {
         PlayAnimation();
         PreparingLevel1();
+        currentLevel = 1;
     }
 
     public void Playlevel2()
     {
         PlayAnimation();
         PreparingLevel2();
+        currentLevel = 2;
     }
 
     public void QuitGame()
@@ -87,8 +91,14 @@ public class InterfaceManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void Reiniciar()
+    public void OffSelectLevel()
     {
+        levelSelectionMenu.SetActive(false);
+    }
+
+    public void Reiniciar(int i = 0)
+    {
+        PlayAnimation();
         ingameInterface.SetActive(false);
         finalLevel1Win.SetActive(false);
         finalLevel1Lose.SetActive(false);
@@ -98,6 +108,22 @@ public class InterfaceManager : MonoBehaviour
         moviments = 0;
         managerDeScenario.ResetdePortinhas();
         cracksManager.ResetAll();
+        if(i == 1)
+        {
+            levelSelectionMenu.SetActive(false);
+        }
+        if(i == 2)
+        {
+            if(currentLevel == 1)
+            {
+                Playlevel1();
+            }
+            else if(currentLevel == 2)
+            {
+                Playlevel2();
+            }
+
+        }
         //cineMachineVirtual.Follow = playerGG.gameObject.transform;
         //SceneManager.LoadScene("Inicio");
     }
@@ -106,6 +132,8 @@ public class InterfaceManager : MonoBehaviour
     public void PreparingLevel1()
     {
         playerGG.SetPositionStart(level1StartPosition);
+        //levelSelectionMenu.SetActive(false);
+        mainMenu.SetActive(false);
         ingameInterface.SetActive(true);
         Ingame = true;
         moviments = 0;
@@ -114,6 +142,8 @@ public class InterfaceManager : MonoBehaviour
     public void PreparingLevel2()
     {
         playerGG.SetPositionStart(level2StartPosition);
+        //levelSelectionMenu.SetActive(false);
+        mainMenu.SetActive(false);
         ingameInterface.SetActive(true);
         Ingame = true;
         moviments = 0;
@@ -128,30 +158,78 @@ public class InterfaceManager : MonoBehaviour
     //Função do Diego de fade
     public void PlayAnimation()
     {
-        StartCoroutine(Animation());
+        StartCoroutine(Transition_p1());
     }
 
-    private IEnumerator Animation()
+    private IEnumerator Transition_p1()
     {
-        float timer = 0.7f; //tempo da animação
+        float timer = 0.1f; //tempo da animação
         Color color = img.color;
         do
         {
-                timer -= Time.deltaTime;//reduzir o tempo a cada frame
-                color.a = Mathf.Lerp(1, 0 , timer/3f);//um lerp para transitar o alpha entre 1 e 0 de acordo com o tempo
+                timer -= Time.deltaTime;
+
+                color.a = Mathf.Lerp(1, 0 , timer);
+
                 img.color = color;
+                if(timer <= 0.01)
+                {
+                    StartCoroutine(Transition_p2());
+                }
+                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
-        while(timer > 0.7f);
-        
-        levelSelectionMenu.SetActive(false);
-        mainMenu.SetActive(false);
+        while(timer > 0f);
+    }
 
-        timer = 1f;
-
+    private IEnumerator Transition_p2()
+    {
+        float timer = 0.5f; //tempo da animação
+        Color color = img.color;
         do
         {
-                timer -= Time.deltaTime;//reduzir o tempo a cada frame
-                color.a = Mathf.Lerp(0, 1 , timer/3f);//um lerp para transitar o alpha entre 1 e 0 de acordo com o tempo
+                timer -= Time.deltaTime;
+
+                color = Color.Lerp(color, Color.white , timer);
+
+                img.color = color;
+                if(timer <= 0.01)
+                {
+                    StartCoroutine(Transition_p3());
+                }
+                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0f);
+    }
+
+    private IEnumerator Transition_p3()
+    {
+        float timer = 0.5f; //tempo da animação
+        Color color = img.color;
+        do
+        {
+                timer -= Time.deltaTime;
+
+                color = Color.Lerp(color, Color.black , timer);
+
+                img.color = color;
+                if(timer <= 0.01)
+                {
+                    StartCoroutine(Transition_p4());
+                }
+                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+        }
+        while(timer > 0f);
+    }
+
+    private IEnumerator Transition_p4()
+    {
+        float timer = 0.5f; //tempo da animação
+        Color color = img.color;
+        do
+        {
+                timer -= Time.deltaTime;
+                color.a = Mathf.Lerp(0, 1 , timer);
+
                 img.color = color;
                 yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
         }
