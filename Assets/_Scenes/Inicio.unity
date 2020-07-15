@@ -2846,13 +2846,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9442e5d258af54098fa4842e1ec662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 0}
+  buttons: []
   groundTrigger: {fileID: 1351101}
   collidersToOpen:
   - {fileID: 1893592330}
-  groundsToActivate:
-  - {fileID: 0}
+  groundsToActivate: []
   isNormalOpen: 1
   doorRight: {fileID: 2033635691}
   doorLeft: {fileID: 1083093054}
@@ -7454,7 +7452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385991864}
   m_LocalRotation: {x: 0.20507812, y: -0.3038152, z: 0.067141846, w: 0.92797166}
-  m_LocalPosition: {x: -98.689, y: 1.81, z: 103.23801}
+  m_LocalPosition: {x: -98.63601, y: 1.81, z: 103.119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -34791,7 +34789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141033793}
   m_LocalRotation: {x: 0.20507812, y: -0.3038152, z: 0.067141846, w: 0.92797166}
-  m_LocalPosition: {x: -98.689, y: 1.81, z: 103.23801}
+  m_LocalPosition: {x: -98.63601, y: 1.81, z: 103.119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1947192246}
@@ -42713,12 +42711,12 @@ PrefabInstance:
     - target: {fileID: 6971467932094640127, guid: 887c3c79246832f49ba624b9f215559f,
         type: 3}
       propertyPath: level4StartPosition.x
-      value: -100.213
+      value: -100.16
       objectReference: {fileID: 0}
     - target: {fileID: 6971467932094640127, guid: 887c3c79246832f49ba624b9f215559f,
         type: 3}
       propertyPath: level4StartPosition.z
-      value: 105.189
+      value: 105.07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 887c3c79246832f49ba624b9f215559f, type: 3}
@@ -45748,7 +45746,7 @@ PrefabInstance:
     - target: {fileID: 8871451562559919748, guid: 22aebce7ef4371b4795ea35713f5210d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100.213
+      value: -100.16
       objectReference: {fileID: 0}
     - target: {fileID: 8871451562559919748, guid: 22aebce7ef4371b4795ea35713f5210d,
         type: 3}
@@ -45758,7 +45756,7 @@ PrefabInstance:
     - target: {fileID: 8871451562559919748, guid: 22aebce7ef4371b4795ea35713f5210d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 105.189
+      value: 105.07
       objectReference: {fileID: 0}
     - target: {fileID: 8871451562559919748, guid: 22aebce7ef4371b4795ea35713f5210d,
         type: 3}
