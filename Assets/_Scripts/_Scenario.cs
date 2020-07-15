@@ -10,6 +10,8 @@ public class _Scenario : MonoBehaviour
     public GameObject groundTrigger;
 
     public GameObject[] collidersToOpen;
+
+    public GameObject[] groundsToActivate;
     public bool isNormalOpen;
     [Header("Portinhas")]
     public GameObject doorRight;
@@ -28,6 +30,17 @@ public class _Scenario : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ActivateGroundHide()
+    {
+        if(groundsToActivate.Length > 0)
+        {
+            foreach(GameObject gO in groundsToActivate)
+            {
+                gO.SetActive(true);
+            }
+        }
     }
 
     public void ActivateGround()
@@ -69,6 +82,14 @@ public class _Scenario : MonoBehaviour
                 bu.ResetButton();
             }
         }
+        if(groundsToActivate.Length > 0)
+        {
+            foreach(GameObject gO in groundsToActivate)
+            {
+                gO.SetActive(false);
+            }
+        }
+
         if(isNormalOpen)
         {
             StartCoroutine(CorroutineTimerOpenDoors());

@@ -31,6 +31,7 @@ public class InterfaceManager : MonoBehaviour
     [Header("Level Positions")]
     public Vector3 level1StartPosition;
     public Vector3 level2StartPosition;
+    public Vector3 level3StartPosition;
     public Vector3 level1CameraPosition;
     public Vector3 level1CameraRotation;
 
@@ -86,6 +87,23 @@ public class InterfaceManager : MonoBehaviour
         currentLevel = 2;
     }
 
+    public void PlayLevel3()
+    {
+        PlayAnimation();
+        PreparingLevel3();
+        currentLevel = 3;
+    }
+
+    void PreparingLevel3()
+    {
+        playerGG.SetPositionStart(level3StartPosition);
+        //levelSelectionMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        ingameInterface.SetActive(true);
+        Ingame = true;
+        moviments = 0;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -122,7 +140,10 @@ public class InterfaceManager : MonoBehaviour
             {
                 Playlevel2();
             }
-
+            else if(currentLevel == 3)
+            {
+                PlayLevel3();
+            }
         }
         //cineMachineVirtual.Follow = playerGG.gameObject.transform;
         //SceneManager.LoadScene("Inicio");

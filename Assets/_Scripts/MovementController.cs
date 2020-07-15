@@ -211,18 +211,35 @@ public class MovementController : MonoBehaviour
         // Ray myRayDown = new Ray(transform.position + new Vector3(0, 0.25f, 0), Vector3.down);
         // Debug.DrawRay(myRayLeft.origin, myRayLeft.direction, Color.black);
 
-        RaycastHit hitFf;
-        RaycastHit hitBb;
+        RaycastHit[] hitFf;
+        hitFf = Physics.RaycastAll(transform.position + new Vector3(0, 0.25f, 0), Vector3.forward, rayLength);
+
+        RaycastHit[] hitBb;
+        hitBb = Physics.RaycastAll(transform.position + new Vector3(0, 0.25f, 0), Vector3.back, rayLength);
+
         RaycastHit[] hitLl;
         hitLl = Physics.RaycastAll(transform.position + new Vector3(0, 0.25f, 0), Vector3.left, rayLength);
 
-        RaycastHit hitRr;
+        RaycastHit[] hitRr;
+        hitRr = Physics.RaycastAll(transform.position + new Vector3(0, 0.25f, 0), Vector3.right, rayLength);
 
-        if(Physics.Raycast(myRaF, out hitFf, rayLength))
+        foreach(RaycastHit ra in hitFf)
         {
-            if(hitFf.collider.tag == "Button")
+            if(ra.collider.tag == "Button")
             {
-                Debug.Log("Beti no bottão");
+                Debug.Log("Pelo amor de deus deu certo");
+                _ButtonLogic b = ra.collider.gameObject.GetComponent<_ButtonLogic>();
+                b.DoSomething();
+            }
+        }
+
+        foreach(RaycastHit ra in hitBb)
+        {
+            if(ra.collider.tag == "Button")
+            {
+                Debug.Log("Pelo amor de deus deu certo");
+                _ButtonLogic b = ra.collider.gameObject.GetComponent<_ButtonLogic>();
+                b.DoSomething();
             }
         }
 
@@ -236,30 +253,16 @@ public class MovementController : MonoBehaviour
             }
         }
 
-        // if(Physics.Raycast(myRayL, out hitLl, rayLength))
-        // {
-        //     if(hitLl.collider.tag == "Button")
-        //     {
-        //         Debug.Log("Beti no bottão");
-        //     }
-        // }
-
-        if(Physics.Raycast(myRayR, out hitRr, rayLength))
+        foreach(RaycastHit ra in hitRr)
         {
-            if(hitRr.collider.tag == "Button")
+            if(ra.collider.tag == "Button")
             {
-                Debug.Log("Beti no bottão");
-            }
-        }
-        if(Physics.Raycast(myRayB, out hitBb, rayLength))
-        {
-            if(hitBb.collider.tag == "Button")
-            {
-                Debug.Log("Beti no bottão");
+                Debug.Log("Pelo amor de deus deu certo");
+                _ButtonLogic b = ra.collider.gameObject.GetComponent<_ButtonLogic>();
+                b.DoSomething();
             }
         }
     }
-
 
 
     void Ganhei()
