@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
  
 /// <summary>
 /// An add-on module for Cinemachine Virtual Camera that locks the camera's Z co-ordinate

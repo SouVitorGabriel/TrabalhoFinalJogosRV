@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using Cinemachine;
+using Unity.Cinemachine;
 
 public class InterfaceManager : MonoBehaviour
 {

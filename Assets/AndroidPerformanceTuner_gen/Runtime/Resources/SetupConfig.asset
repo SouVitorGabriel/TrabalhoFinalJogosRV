@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7043250a3f6d44263884710e80a6b001, type: 3}
   m_Name: SetupConfig
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Google.Android.PerformanceTuner::Google.Android.PerformanceTuner.SetupConfig
   pluginEnabled: 1
   useAdvancedFidelityParameters: 0
   useAdvancedAnnotations: 0
