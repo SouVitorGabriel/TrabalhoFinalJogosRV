@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/teste.uss?fileID=7433441132597879392&amp;guid=09702c40d60246145b772eab663bd638&amp;type=3#teste"/>
+    <ui:VisualElement name="MainMenu" style="flex-grow: 1; background-color: rgba(58, 42, 42, 0.353); align-items: center; justify-content: center;">
+        <ui:Label text="Label" class="botao"/>
+    </ui:VisualElement>
+</ui:UXML>

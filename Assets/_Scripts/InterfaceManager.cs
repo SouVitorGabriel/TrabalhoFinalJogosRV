@@ -8,9 +8,6 @@ using Unity.Cinemachine;
 
 public class InterfaceManager : MonoBehaviour
 {
-    [Header("Tuner")]
-    private _GamePerformanceManager gamePerformanceManager = new _GamePerformanceManager();
-
     [Header("UI's")]
     public Image img; //uma imagem para fazer fadeout por exemplo
     public GameObject mainMenu;
@@ -54,7 +51,6 @@ public class InterfaceManager : MonoBehaviour
     void Start()
     {
         SetVsync0_60FPS();
-        gamePerformanceManager.Initialize();
     }
     
     void Update()
