@@ -16,7 +16,7 @@ public class MovementController : MonoBehaviour
     public GameObject ganhou;
     public GameObject perdeu;
 
-    public CinemachineVirtualCamera cineMachineVCamera;
+    public CinemachineVirtualCameraBase cineMachineVCamera;
     [Header("Booleanas de teste")]
     public bool frente;
     public bool esquerda;
@@ -313,21 +313,17 @@ public class MovementController : MonoBehaviour
 
     public void SetPositionStart(Vector3 pos)
     {
-        // cineMachineVCamera.m_Follow = this.transform;
-        // CinemachineTransposer cinemachineTransposer = cineMachineVCamera.GetCinemachineComponent<CinemachineTransposer>();
-        // cinemachineTransposer.m_FollowOffset =  new Vector3 (1.523998f, 1.81f, -1.950998f);
         currentDirection = upOrFront;
         nextPos = Vector3.forward;
         transform.position = pos;
         destination = pos;
         SetCameraFollow();
+        cineMachineVCamera.PreviousStateIsValid = false;
     }
 
     void SetCameraFollow()
     {
         cineMachineVCamera.Follow = eu.transform;
-        CinemachineTransposer cinemachineTransposer = cineMachineVCamera.GetCinemachineComponent<CinemachineTransposer>();
-        cinemachineTransposer.m_FollowOffset =  new Vector3 (1.523998f, 1.81f, -1.950998f);
     }
 
 

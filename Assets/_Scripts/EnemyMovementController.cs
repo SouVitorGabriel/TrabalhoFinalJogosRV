@@ -14,7 +14,7 @@ public class EnemyMovementController : MonoBehaviour
     [Header("Booleanas de teste")]
     public GameObject ganhou;
 
-    public CinemachineVirtualCamera cineMachineVCamera;
+    public CinemachineVirtualCameraBase cineMachineVCamera;
     [Header("Booleanas de teste")]
     public bool frente;
     public bool esquerda;
@@ -42,7 +42,6 @@ public class EnemyMovementController : MonoBehaviour
 
     bool canMove = false;
 
-    int actualMoves = 0;
     void Start()
     {
         currentDirection = upOrFront;
@@ -52,20 +51,6 @@ public class EnemyMovementController : MonoBehaviour
 
     void Update()
     {
-        // if(actualMoves != interfaceManager.Moviments)
-        // {
-        //     int r = Random.Range(1, 4);
-        //     //Debug.Log("Random: " + r);
-        //     if(r == 1)
-        //         frente = true;
-        //     if(r == 2)
-        //         atras = true;
-        //     if(r == 3)
-        //         esquerda = true;
-        //     if(r == 4)
-        //         direita = true;
-        //     actualMoves = interfaceManager.Moviments;
-        // }
         Move();
     }
     public void Move()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class InterfaceManager : MonoBehaviour
     [Header("Controllers")]
     public MovementController playerGG;
     public ManagerDeScenario managerDeScenario;
-    public CinemachineVirtualCamera cineMachineVirtual;
+    public CinemachineVirtualCameraBase cineMachineVirtual;
 
     public CrackBlockManager cracksManager;
 
@@ -41,6 +42,7 @@ public class InterfaceManager : MonoBehaviour
     int currentLevel = 0;
     
     bool ingame;
+    bool isTransitioning;
 
     int actualLevel;
 
@@ -74,30 +76,42 @@ public class InterfaceManager : MonoBehaviour
 
     public void Playlevel1()
     {
-        PlayAnimation();
-        PreparingLevel1();
-        currentLevel = 1;
+        StartLevel(1);
     }
 
     public void Playlevel2()
     {
-        PlayAnimation();
-        PreparingLevel2();
-        currentLevel = 2;
+        StartLevel(2);
     }
 
     public void PlayLevel3()
     {
-        PlayAnimation();
-        PreparingLevel3();
-        currentLevel = 3;
+        StartLevel(3);
     }
 
     public void PlayLevel4()
     {
-        PlayAnimation();
-        PreparingLevel4();
-        currentLevel = 4;
+        StartLevel(4);
+    }
+
+    void StartLevel(int level)
+    {
+        if(isTransitioning)
+            return;
+
+        currentLevel = level;
+        StartCoroutine(Transition(() => PrepareLevel(level)));
+    }
+
+    void PrepareLevel(int level)
+    {
+        switch(level)
+        {
+            case 1: PreparingLevel1(); break;
+            case 2: PreparingLevel2(); break;
+            case 3: PreparingLevel3(); break;
+            case 4: PreparingLevel4(); break;
+        }
     }
 
     void PreparingLevel3()
@@ -132,7 +146,14 @@ public class InterfaceManager : MonoBehaviour
 
     public void Reiniciar(int i = 0)
     {
-        PlayAnimation();
+        if(isTransitioning)
+            return;
+
+        StartCoroutine(Transition(() => ResetGame(i)));
+    }
+
+    void ResetGame(int i)
+    {
         enemy.SetPositionStart(new Vector3(-100.213f, 0f, 111.15f));
         ingameInterface.SetActive(false);
         finalLevel1Win.SetActive(false);
@@ -149,22 +170,7 @@ public class InterfaceManager : MonoBehaviour
         }
         if(i == 2)
         {
-            if(currentLevel == 1)
-            {
-                Playlevel1();
-            }
-            else if(currentLevel == 2)
-            {
-                Playlevel2();
-            }
-            else if(currentLevel == 3)
-            {
-                PlayLevel3();
-            }
-            else if(currentLevel == 4)
-            {
-                PlayLevel4();
-            }
+            PrepareLevel(currentLevel);
         }
         //cineMachineVirtual.Follow = playerGG.gameObject.transform;
         //SceneManager.LoadScene("Inicio");
@@ -200,82 +206,45 @@ public class InterfaceManager : MonoBehaviour
     //Função do Diego de fade
     public void PlayAnimation()
     {
-        StartCoroutine(Transition_p1());
+        if(!isTransitioning)
+            StartCoroutine(Transition(null));
     }
 
-    private IEnumerator Transition_p1()
+    private IEnumerator Transition(Action onCovered)
     {
-        float timer = 0.1f; //tempo da animação
         Color color = img.color;
-        do
-        {
-                timer -= Time.deltaTime;
+        color.a = 0f;
+        img.color = color;
+        img.raycastTarget = true;
+        isTransitioning = true;
 
-                color.a = Mathf.Lerp(1, 0 , timer);
+        yield return FadeImage(1f, 0.15f);
+        onCovered?.Invoke();
+        yield return null;
+        yield return new WaitForSecondsRealtime(0.2f);
+        yield return FadeImage(0f, 0.15f);
 
-                img.color = color;
-                if(timer <= 0.01)
-                {
-                    StartCoroutine(Transition_p2());
-                }
-                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
-        }
-        while(timer > 0f);
+        img.raycastTarget = false;
+        isTransitioning = false;
     }
 
-    private IEnumerator Transition_p2()
+    private IEnumerator FadeImage(float targetAlpha, float duration)
     {
-        float timer = 0.5f; //tempo da animação
-        Color color = img.color;
-        do
+        float startAlpha = img.color.a;
+        float elapsed = 0f;
+
+        while(elapsed < duration)
         {
-                timer -= Time.deltaTime;
-
-                color = Color.Lerp(color, Color.white , timer);
-
-                img.color = color;
-                if(timer <= 0.01)
-                {
-                    StartCoroutine(Transition_p3());
-                }
-                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
+            elapsed += Time.unscaledDeltaTime;
+            Color color = img.color;
+            color.a = Mathf.Lerp(startAlpha, targetAlpha, Mathf.Clamp01(elapsed / duration));
+            img.color = color;
+            yield return null;
         }
-        while(timer > 0f);
-    }
 
-    private IEnumerator Transition_p3()
-    {
-        float timer = 0.5f; //tempo da animação
-        Color color = img.color;
-        do
-        {
-                timer -= Time.deltaTime;
-
-                color = Color.Lerp(color, Color.black , timer);
-
-                img.color = color;
-                if(timer <= 0.01)
-                {
-                    StartCoroutine(Transition_p4());
-                }
-                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
-        }
-        while(timer > 0f);
-    }
-
-    private IEnumerator Transition_p4()
-    {
-        float timer = 0.5f; //tempo da animação
-        Color color = img.color;
-        do
-        {
-                timer -= Time.deltaTime;
-                color.a = Mathf.Lerp(0, 1 , timer);
-
-                img.color = color;
-                yield return new WaitForEndOfFrame();//colocar a coroutine para "dormir"
-        }
-        while(timer > 0f);
+        Color finalColor = img.color;
+        finalColor.a = targetAlpha;
+        img.color = finalColor;
     }
 
 
