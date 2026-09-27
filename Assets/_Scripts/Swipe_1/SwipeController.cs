@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class SwipeController : MonoBehaviour
 {
@@ -8,86 +10,68 @@ public class SwipeController : MonoBehaviour
     private bool tap, doubleToque, swipeLeft, swipeRight, swipeUp,  swipeDown;
     private Vector2 startTouch, swipeDelta;
     private float lastTap;
-    private float sqrDeadzone;
     private bool isDraging = false;
     private void Update()
     {
-        tap  = doubleToque = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+        tap = doubleToque = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+        swipeDelta = Vector2.zero;
 
-        #region Unity StandAlone Inputs
-            if(Input.GetMouseButtonDown(0))
-            {
-                tap = true;
-                isDraging = true;
-                doubleToque = Time.time - lastTap < doubleToqueDelta;
-                lastTap = Time.time;
-                startTouch = Input.mousePosition;
-            }
-            else if(Input.GetMouseButtonUp(0))
-            {
-                isDraging = false;
-                Reset();
-            }
-        #endregion
+        TouchControl touch = Touchscreen.current != null ? Touchscreen.current.primaryTouch : null;
+        Mouse mouse = Mouse.current;
+        bool pointerReleased = false;
 
-        #region Mobile Inputs
-        if(Input.touches.Length > 0)
+        if(touch != null && (touch.press.isPressed || touch.press.wasPressedThisFrame || touch.press.wasReleasedThisFrame))
         {
-            if(Input.touches[0].phase == TouchPhase.Began)
+            if(touch.press.wasPressedThisFrame)
             {
-                tap = true;
-                doubleToque = Time.time - lastTap < doubleToqueDelta;
-                lastTap = Time.time;
-                isDraging = true;
+                BeginPointer(touch.position.ReadValue());
             }
-            else if(Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+            pointerReleased = touch.press.wasReleasedThisFrame;
+            if(touch.press.isPressed && isDraging)
             {
-                isDraging = false;
-                Reset();
+                swipeDelta = touch.position.ReadValue() - startTouch;
             }
         }
-
-        #endregion
-
-        //Calculando a distancia
-        swipeDelta =  Vector2.zero;
-        if(isDraging)
+        else if(mouse != null)
         {
-            if(Input.touches.Length > 0)
+            if(mouse.leftButton.wasPressedThisFrame)
             {
-                swipeDelta = Input.touches[0].position - startTouch;
+                BeginPointer(mouse.position.ReadValue());
             }
-            else if(Input.GetMouseButton(0))
+            if(mouse.leftButton.isPressed && isDraging)
             {
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
+                swipeDelta = mouse.position.ReadValue() - startTouch;
             }
+            pointerReleased = mouse.leftButton.wasReleasedThisFrame;
         }
 
-        //Verficando se ultrapassou a zona morta
         if(swipeDelta.magnitude > 80)
         {
-            //Agora verificando em qual direção:
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-            
-            if(Mathf.Abs(x) > Mathf.Abs(y))
+            if(Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y))
             {
-                //já que é para os lados, mas qual?
-                if(x < 0)
-                    swipeLeft = true;
-                else
-                    swipeRight = true;
+                swipeLeft = swipeDelta.x < 0;
+                swipeRight = swipeDelta.x > 0;
             }
             else
             {
-                //já que é cima ou para qual, qual deles?
-                if(y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
+                swipeDown = swipeDelta.y < 0;
+                swipeUp = swipeDelta.y > 0;
             }
             Reset();
         }
+        else if(pointerReleased)
+        {
+            Reset();
+        }
+    }
+
+    private void BeginPointer(Vector2 position)
+    {
+        tap = true;
+        isDraging = true;
+        doubleToque = Time.time - lastTap < doubleToqueDelta;
+        lastTap = Time.time;
+        startTouch = position;
     }
     private void Reset()
     {

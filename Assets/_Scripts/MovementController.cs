@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Unity.Cinemachine;
 
 public class MovementController : MonoBehaviour
@@ -63,7 +64,8 @@ public class MovementController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
 
-            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || frente)
+            Keyboard keyboard = Keyboard.current;
+            if((keyboard != null && (keyboard.wKey.wasPressedThisFrame || keyboard.upArrowKey.wasPressedThisFrame)) || frente)
             {
                 nextPos = Vector3.forward;
                 currentDirection = upOrFront;
@@ -71,7 +73,7 @@ public class MovementController : MonoBehaviour
                 frente = false;
             }
 
-            if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || atras)
+            if((keyboard != null && (keyboard.sKey.wasPressedThisFrame || keyboard.downArrowKey.wasPressedThisFrame)) || atras)
             {
                 nextPos = Vector3.back;
                 currentDirection = downOrBack;
@@ -79,7 +81,7 @@ public class MovementController : MonoBehaviour
                 atras = false;
             }
 
-            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || direita)
+            if((keyboard != null && (keyboard.dKey.wasPressedThisFrame || keyboard.rightArrowKey.wasPressedThisFrame)) || direita)
             {
                 nextPos = Vector3.right;
                 currentDirection = right;
@@ -87,7 +89,7 @@ public class MovementController : MonoBehaviour
                 direita = false;
             }
 
-            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || esquerda)
+            if((keyboard != null && (keyboard.aKey.wasPressedThisFrame || keyboard.leftArrowKey.wasPressedThisFrame)) || esquerda)
             {
                 nextPos = Vector3.left;
                 currentDirection = left;
