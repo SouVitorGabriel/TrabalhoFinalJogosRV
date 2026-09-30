@@ -1,0 +1,1091 @@
+Estrutura da Hierarchy com Componentes - Cena: Inicio
+==================================================================
+├─ Directional Light [Light, UniversalAdditionalLightData]
+├─ Player [MovementController, BoxCollider]
+│  ├─ Armature.001
+│  │  ├─ coluna
+│  │  │  └─ acima-coluna
+│  │  │     ├─ cabeça
+│  │  │     │  └─ chapéu1
+│  │  │     │     └─ chapéu2
+│  │  │     │        └─ chapéu3
+│  │  │     │           └─ chapéu4
+│  │  │     │              └─ chapéu4_end
+│  │  │     ├─ ombro.l
+│  │  │     │  └─ biceps.l
+│  │  │     │     └─ antebraço.l
+│  │  │     │        ├─ antebraço.l.001
+│  │  │     │        │  └─ antebraço.l.002
+│  │  │     │        │     └─ antebraço.l.002_end
+│  │  │     │        ├─ mão-anelar.l
+│  │  │     │        │  └─ anelar1.l
+│  │  │     │        │     └─ anelar2.l
+│  │  │     │        │        └─ anelar2.l_end
+│  │  │     │        ├─ mão-dedão.l
+│  │  │     │        │  └─ dedão1.l
+│  │  │     │        │     └─ dedão2.l
+│  │  │     │        │        └─ dedão2.l_end
+│  │  │     │        ├─ mão-indicador.l
+│  │  │     │        │  └─ indicador1.l
+│  │  │     │        │     └─ indicador2.l
+│  │  │     │        │        └─ indicador2.l_end
+│  │  │     │        ├─ mão-minimo.l
+│  │  │     │        │  └─ minimo1.l
+│  │  │     │        │     └─ minimo2.l
+│  │  │     │        │        └─ minimo2.l_end
+│  │  │     │        └─ mão.meio.l
+│  │  │     │           └─ meio1.l
+│  │  │     │              └─ meio2.l
+│  │  │     │                 └─ meio2.l_end
+│  │  │     └─ ombro.r
+│  │  │        └─ biceps.r
+│  │  │           └─ antebraço.r
+│  │  │              ├─ mão-anelar.r
+│  │  │              │  └─ anelar1.r
+│  │  │              │     └─ anelar2.r
+│  │  │              │        └─ anelar2.r_end
+│  │  │              ├─ mão-dedão.r
+│  │  │              │  └─ dedão1.r
+│  │  │              │     └─ dedão2.r
+│  │  │              │        └─ dedão2.r_end
+│  │  │              ├─ mão-indicador.r
+│  │  │              │  └─ indicador1.r
+│  │  │              │     └─ indicador2.r
+│  │  │              │        └─ indicador2.r_end
+│  │  │              ├─ mão-minimo.r
+│  │  │              │  └─ minimo1.r
+│  │  │              │     └─ minimo2.r
+│  │  │              │        └─ minimo2.r_end
+│  │  │              └─ mão.meio.r
+│  │  │                 └─ meio1.r
+│  │  │                    └─ meio2.r
+│  │  │                       └─ meio2.r_end
+│  │  └─ coluna.001
+│  │     └─ coluna.002
+│  │        └─ coluna.003
+│  │           └─ coluna.003_end
+│  ├─ Cabeç [SkinnedMeshRenderer]
+│  ├─ Cajado [SkinnedMeshRenderer]
+│  ├─ Chapeu [SkinnedMeshRenderer]
+│  ├─ Mãos [SkinnedMeshRenderer]
+│  ├─ Olhos [SkinnedMeshRenderer]
+│  ├─ Orelhas [SkinnedMeshRenderer]
+│  ├─ Pedra Cajado [SkinnedMeshRenderer]
+│  └─ Vestido Final.001 [SkinnedMeshRenderer]
+├─ ScenarioLevel1 [_Scenario]
+│  └─ portalPortal
+│     ├─ Space [MeshFilter, MeshRenderer]
+│     ├─ DoorRight [MeshFilter, MeshRenderer]
+│     ├─ DoorLeft [MeshFilter, MeshRenderer]
+│     └─ Cube [MeshFilter, MeshRenderer, ProBuilderMesh, MeshCollider]
+├─ Level1
+│  ├─ Colliders
+│  │  ├─ Colliders (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (4) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (6) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (8) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (9) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (10) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (12) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  └─ Colliders_3 (13) [MeshFilter, MeshRenderer, BoxCollider]
+│  ├─ Grounds
+│  │  ├─ Ground (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (4) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (6) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (8) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (9) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (10) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (12) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (13) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (14) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (15) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (16) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (17) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (18) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (19) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (20) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (21) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Fake [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (23) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (24) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (25) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (26) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (27) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (23) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (24) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  └─ Ground (25) [MeshFilter, MeshRenderer, BoxCollider]
+│  │     ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │     └─ flower
+│  │        ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │        ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │        └─ Icosphere [MeshFilter, MeshRenderer]
+│  ├─ Seas
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Wall [MeshFilter, MeshRenderer]
+│  ├─ Wall (1) [MeshFilter, MeshRenderer]
+│  ├─ Wall (2) [MeshFilter, MeshRenderer]
+│  ├─ SeasBlack
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (1)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (2)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Rock_S1 [MeshFilter, MeshRenderer]
+│  ├─ Rock_M1 [MeshFilter, MeshRenderer]
+│  ├─ Rock_M1 (1) [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 (1) [MeshFilter, MeshRenderer]
+│  ├─ Rock_S2 [MeshFilter, MeshRenderer]
+│  ├─ tree2 [MeshFilter, MeshRenderer]
+│  └─ tree2 (1) [MeshFilter, MeshRenderer]
+├─ Level2
+│  ├─ Colliders
+│  │  ├─ Colliders (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (4) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (6) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (8) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (9) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (10) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (12) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (13) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  └─ ColliderDoor [MeshFilter, MeshRenderer, BoxCollider]
+│  ├─ Grounds
+│  │  ├─ Ground (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ GanhouBlock [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (13) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (14) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (17) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (18) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (19) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (20) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (21) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (22) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (1) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  └─ Ground (4) [MeshFilter, MeshRenderer, BoxCollider]
+│  │     ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │     └─ flower
+│  │        ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │        ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │        └─ Icosphere [MeshFilter, MeshRenderer]
+│  ├─ Seas
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Wall [MeshFilter, MeshRenderer]
+│  ├─ Wall (1) [MeshFilter, MeshRenderer]
+│  ├─ Wall (2) [MeshFilter, MeshRenderer]
+│  ├─ SeasBlack
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (1)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (2)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Rock_S1 [MeshFilter, MeshRenderer]
+│  ├─ Rock_M1 [MeshFilter, MeshRenderer]
+│  ├─ Rock_M1 (1) [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 (1) [MeshFilter, MeshRenderer]
+│  ├─ Rock_S2 [MeshFilter, MeshRenderer]
+│  ├─ crackBlock [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (1) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (2) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (3) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (4) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (5) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (6) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ ScenarioLevel2 [_Scenario]
+│  │  ├─ portalPortal
+│  │  │  ├─ Space [MeshFilter, MeshRenderer]
+│  │  │  ├─ DoorRight [MeshFilter, MeshRenderer]
+│  │  │  ├─ DoorLeft [MeshFilter, MeshRenderer]
+│  │  │  └─ Cube [MeshFilter, MeshRenderer, ProBuilderMesh, MeshCollider]
+│  │  └─ Button [_ButtonLogic, BoxCollider]
+│  │     ├─ Corpo [MeshFilter, MeshRenderer]
+│  │     └─ Eixo
+│  │        └─ Botao [MeshFilter, MeshRenderer]
+│  ├─ tree1 (4) [MeshFilter, MeshRenderer]
+│  └─ tree1 (5) [MeshFilter, MeshRenderer]
+├─ Cube [MeshFilter, MeshRenderer, ProBuilderMesh, MeshCollider]
+├─ Enemy [EnemyMovementController]
+│  ├─ Armature.001
+│  │  ├─ coluna
+│  │  │  └─ acima-coluna
+│  │  │     ├─ cabeça
+│  │  │     │  └─ chapéu1
+│  │  │     │     └─ chapéu2
+│  │  │     │        └─ chapéu3
+│  │  │     │           └─ chapéu4
+│  │  │     │              └─ chapéu4_end
+│  │  │     ├─ ombro.l
+│  │  │     │  └─ biceps.l
+│  │  │     │     └─ antebraço.l
+│  │  │     │        ├─ antebraço.l.001
+│  │  │     │        │  └─ antebraço.l.002
+│  │  │     │        │     └─ antebraço.l.002_end
+│  │  │     │        ├─ mão-anelar.l
+│  │  │     │        │  └─ anelar1.l
+│  │  │     │        │     └─ anelar2.l
+│  │  │     │        │        └─ anelar2.l_end
+│  │  │     │        ├─ mão-dedão.l
+│  │  │     │        │  └─ dedão1.l
+│  │  │     │        │     └─ dedão2.l
+│  │  │     │        │        └─ dedão2.l_end
+│  │  │     │        ├─ mão-indicador.l
+│  │  │     │        │  └─ indicador1.l
+│  │  │     │        │     └─ indicador2.l
+│  │  │     │        │        └─ indicador2.l_end
+│  │  │     │        ├─ mão-minimo.l
+│  │  │     │        │  └─ minimo1.l
+│  │  │     │        │     └─ minimo2.l
+│  │  │     │        │        └─ minimo2.l_end
+│  │  │     │        └─ mão.meio.l
+│  │  │     │           └─ meio1.l
+│  │  │     │              └─ meio2.l
+│  │  │     │                 └─ meio2.l_end
+│  │  │     └─ ombro.r
+│  │  │        └─ biceps.r
+│  │  │           └─ antebraço.r
+│  │  │              ├─ mão-anelar.r
+│  │  │              │  └─ anelar1.r
+│  │  │              │     └─ anelar2.r
+│  │  │              │        └─ anelar2.r_end
+│  │  │              ├─ mão-dedão.r
+│  │  │              │  └─ dedão1.r
+│  │  │              │     └─ dedão2.r
+│  │  │              │        └─ dedão2.r_end
+│  │  │              ├─ mão-indicador.r
+│  │  │              │  └─ indicador1.r
+│  │  │              │     └─ indicador2.r
+│  │  │              │        └─ indicador2.r_end
+│  │  │              ├─ mão-minimo.r
+│  │  │              │  └─ minimo1.r
+│  │  │              │     └─ minimo2.r
+│  │  │              │        └─ minimo2.r_end
+│  │  │              └─ mão.meio.r
+│  │  │                 └─ meio1.r
+│  │  │                    └─ meio2.r
+│  │  │                       └─ meio2.r_end
+│  │  └─ coluna.001
+│  │     └─ coluna.002
+│  │        └─ coluna.003
+│  │           └─ coluna.003_end
+│  ├─ Cabeç [SkinnedMeshRenderer]
+│  ├─ Cajado [SkinnedMeshRenderer]
+│  ├─ Chapeu [SkinnedMeshRenderer]
+│  ├─ Mãos [SkinnedMeshRenderer]
+│  ├─ Olhos [SkinnedMeshRenderer]
+│  ├─ Orelhas [SkinnedMeshRenderer]
+│  ├─ Pedra Cajado [SkinnedMeshRenderer]
+│  └─ Vestido Final.001 [SkinnedMeshRenderer]
+├─ Canvas [Canvas, CanvasScaler, GraphicRaycaster]
+│  ├─ Canvas - EndLevel1 - Win [Canvas, CanvasScaler, GraphicRaycaster]
+│  │  ├─ Background [CanvasRenderer, Image]
+│  │  ├─ Image [CanvasRenderer, Image]
+│  │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  ├─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  │  ├─ TempoText [CanvasRenderer, TextMeshProUGUI]
+│  │  │  └─ MovesText [CanvasRenderer, TextMeshProUGUI]
+│  │  └─ Button [CanvasRenderer, Image, Button]
+│  │     └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  ├─ Canvas - EndLevel1 - Lose [Canvas, CanvasScaler, GraphicRaycaster]
+│  │  ├─ Background [CanvasRenderer, Image]
+│  │  ├─ Image [CanvasRenderer, Image]
+│  │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  ├─ Button Sair [CanvasRenderer, Image, Button]
+│  │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  └─ Button Reiniciar [CanvasRenderer, Image, Button]
+│  │     └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  ├─ Canvas - Ingame [Canvas, CanvasScaler, GraphicRaycaster]
+│  │  └─ Pause [CanvasRenderer, Image, Button]
+│  │     └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  ├─ Canvas - MainMenu [Canvas, CanvasScaler, GraphicRaycaster]
+│  │  ├─ Background [CanvasRenderer, Image]
+│  │  ├─ JogarButton [CanvasRenderer, Image, Button, Animator]
+│  │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  │     ├─ TMP SubMeshUI [LongdonDecorative-5aPv Atlas Material + LiberationSans SDF Atlas] [CanvasRenderer]
+│  │  │     └─ TMP SubMeshUI [LongdonDecorative-5aPv Atlas Material + LiberationSans SDF Atlas] [CanvasRenderer]
+│  │  ├─ Title [CanvasRenderer, TextMeshProUGUI]
+│  │  ├─ OPÇÕES [CanvasRenderer, Image, Button, Animator]
+│  │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  ├─ Sair [CanvasRenderer, Image, Button, Animator]
+│  │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │  └─ Canvas - LevelSelectionMenu [Canvas, CanvasScaler, GraphicRaycaster]
+│  │     ├─ Image [CanvasRenderer, Image]
+│  │     │  ├─ Button - PlayLevel [CanvasRenderer, Image, Button]
+│  │     │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │     │  ├─ Button - PlayLevel2 [CanvasRenderer, Image, Button]
+│  │     │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │     │  ├─ Button - PlayLevel3 [CanvasRenderer, Image, Button]
+│  │     │  │  └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │     │  └─ Button - PlayLevel3 (1) [CanvasRenderer, Image, Button]
+│  │     │     └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │     └─ Button - Voltar [CanvasRenderer, Image, Button]
+│  │        └─ Text (TMP) [CanvasRenderer, TextMeshProUGUI]
+│  │           └─ TMP SubMeshUI [LongdonDecorative-5aPv Atlas Material + LiberationSans SDF Atlas] [CanvasRenderer, TMP_SubMeshUI]
+│  └─ Canvas - Transition [Canvas, CanvasScaler, GraphicRaycaster]
+│     └─ Image [CanvasRenderer, Image]
+├─ Main Camera [Camera, AudioListener, UniversalAdditionalCameraData, CinemachineBrain]
+├─ -- Managers --
+├─ Interface Manager [InterfaceManager]
+│  └─ EventSystem [EventSystem, InputSystemUIInputModule]
+├─ CM vcam1 [LockCameraY, CinemachineCamera, CinemachineFollow]
+├─ swipeManager [SwipeManager, SwipeController]
+├─ Statistics [_StatisticsManager]
+├─ CrackManager [CrackBlockManager]
+├─ ScenarioManager [ManagerDeScenario]
+├─ Level3
+│  ├─ Colliders
+│  │  ├─ Colliders (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (4) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (6) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (8) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (9) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (10) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (12) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (13) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (14) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (15) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (16) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (17) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (18) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (19) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (20) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (21) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (22) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (23) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (24) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (25) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (26) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (27) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (28) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (29) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (30) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  └─ Colliders_3 (31) [MeshFilter, MeshRenderer, BoxCollider]
+│  ├─ Grounds
+│  │  ├─ Ground (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (3) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (4) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (5) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (1) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ GanhouBlock3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (14) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (1)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (2)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ RealHide [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (17) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (19) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (20) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (21) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (1) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (3) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (4) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (5) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (6) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (7) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (8) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (9) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (10) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (11) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (12) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (13) [MeshFilter, MeshRenderer]
+│  │  └─ fake3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │     ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │     └─ flower
+│  │        ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │        ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │        └─ Icosphere [MeshFilter, MeshRenderer]
+│  ├─ Seas
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (4) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (5) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Wall [MeshFilter, MeshRenderer]
+│  ├─ Wall (1) [MeshFilter, MeshRenderer]
+│  ├─ Wall (2) [MeshFilter, MeshRenderer]
+│  ├─ SeasBlack
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (1)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (2)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Rock_M1 [MeshFilter, MeshRenderer]
+│  ├─ Rock_M1 (1) [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 (1) [MeshFilter, MeshRenderer]
+│  ├─ ColliderDoor3 [MeshFilter, MeshRenderer, BoxCollider]
+│  ├─ ColliderDoor3 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  ├─ crackBlock (1) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (2) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (3) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ crackBlock (4) [_CrackBlock, BoxCollider]
+│  │  ├─ Crack1 [MeshFilter, MeshRenderer]
+│  │  ├─ Crack2 [MeshFilter, MeshRenderer]
+│  │  └─ Ground [MeshFilter, MeshRenderer]
+│  ├─ ScenarioLevel3 [_Scenario]
+│  │  ├─ portalPortal
+│  │  │  ├─ Space [MeshFilter, MeshRenderer]
+│  │  │  ├─ DoorRight [MeshFilter, MeshRenderer]
+│  │  │  ├─ DoorLeft [MeshFilter, MeshRenderer]
+│  │  │  └─ Cube [MeshFilter, MeshRenderer, ProBuilderMesh, MeshCollider]
+│  │  ├─ Rock_B2 [MeshFilter, MeshRenderer]
+│  │  ├─ Rock_M1 [MeshFilter, MeshRenderer]
+│  │  ├─ Rock_B1 [MeshFilter, MeshRenderer]
+│  │  ├─ tree1 [MeshFilter, MeshRenderer]
+│  │  ├─ tree2 [MeshFilter, MeshRenderer]
+│  │  ├─ tree1 (1) [MeshFilter, MeshRenderer]
+│  │  ├─ tree2 (1) [MeshFilter, MeshRenderer]
+│  │  ├─ tree2 (2) [MeshFilter, MeshRenderer]
+│  │  ├─ tree2 (3) [MeshFilter, MeshRenderer]
+│  │  ├─ tree2 (4) [MeshFilter, MeshRenderer]
+│  │  ├─ tree2 (5) [MeshFilter, MeshRenderer]
+│  │  ├─ tree1 (2) [MeshFilter, MeshRenderer]
+│  │  └─ tree1 (3) [MeshFilter, MeshRenderer]
+│  └─ Button (1) [_ButtonLogic, BoxCollider]
+│     ├─ Corpo [MeshFilter, MeshRenderer]
+│     └─ Eixo
+│        └─ Botao [MeshFilter, MeshRenderer]
+├─ Level4
+│  ├─ Colliders
+│  │  ├─ Colliders (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (6) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (8) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (9) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (10) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_2 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (12) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (13) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (25) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (29) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  ├─ Colliders_3 (30) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  └─ Colliders_3 (31) [MeshFilter, MeshRenderer, BoxCollider]
+│  ├─ Grounds
+│  │  ├─ Ground (1) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (1) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (3) [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (1)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ flower (2)
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (2) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (1)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (2)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (3)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (4)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (5)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (6)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (7)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (8)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (9)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (10)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (11)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (12)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (13)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (14)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (15)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (16)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (17)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ flower (18)
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (3) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (3) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (4) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (5) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (1) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (7) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (1) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  ├─ GanhouBlock3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (11) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (4) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (5) [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (6) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (7) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (14) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (1)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower (2)
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  ├─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (3) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (17) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (19) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  ├─ flower
+│  │  │  │  ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │  │  ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │  │  └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  │  └─ sampleBlock (2) [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (20) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  ├─ Ground (21) [MeshFilter, MeshRenderer, BoxCollider]
+│  │  │  ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │  │  └─ flower
+│  │  │     ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │  │     ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │  │     └─ Icosphere [MeshFilter, MeshRenderer]
+│  │  └─ fake3 [MeshFilter, MeshRenderer, BoxCollider]
+│  │     ├─ sampleBlock [MeshFilter, MeshRenderer]
+│  │     └─ flower
+│  │        ├─ BezierCurve.002 [MeshFilter, MeshRenderer]
+│  │        ├─ Cube.002 [MeshFilter, MeshRenderer]
+│  │        └─ Icosphere [MeshFilter, MeshRenderer]
+│  ├─ Seas
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (4) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (5) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Wall [MeshFilter, MeshRenderer]
+│  ├─ Wall (1) [MeshFilter, MeshRenderer]
+│  ├─ Wall (2) [MeshFilter, MeshRenderer]
+│  ├─ SeasBlack
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (1)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ SeasBlack (2)
+│  │  ├─ Plane [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (1) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  ├─ Plane (2) [MeshFilter, MeshRenderer, MeshCollider]
+│  │  └─ Plane (3) [MeshFilter, MeshRenderer, MeshCollider]
+│  ├─ Rock_M1 [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 [MeshFilter, MeshRenderer]
+│  ├─ Rock_B2 (1) [MeshFilter, MeshRenderer]
+│  ├─ ColliderDoor3 [MeshFilter, MeshRenderer, BoxCollider]
+│  └─ ScenarioLevel4 [_Scenario]
+│     ├─ portalPortal
+│     │  ├─ Space [MeshFilter, MeshRenderer]
+│     │  ├─ DoorRight [MeshFilter, MeshRenderer]
+│     │  ├─ DoorLeft [MeshFilter, MeshRenderer]
+│     │  └─ Cube [MeshFilter, MeshRenderer, ProBuilderMesh, MeshCollider]
+│     ├─ Rock_M1 [MeshFilter, MeshRenderer]
+│     └─ tree1 (1) [MeshFilter, MeshRenderer]
+└─ NvGameBootstrap [NvLegacyLevelRunnerAdapter, NvGameFlowController]
